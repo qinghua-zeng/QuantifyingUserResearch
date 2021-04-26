@@ -16,3 +16,38 @@ button {
     margin: 4px 2px;
     cursor: pointer;
 }
+
+
+.div {
+    border: green 1px;
+    border-style: solid;
+    width: 300px;
+    text-align: center;
+}
+
+span {
+    background-color: #CCCCCC;
+    font-size: 32px;
+    font-family: "微软雅黑";
+}
+
+.input {
+    border: 1px solid #6666FF;
+}
+
+.div {
+    border: green 1px;
+    border-style: solid;
+    width: 300px;
+    text-align: center;
+}
+
+span {
+    background-color: #CCCCCC;
+    font-size: 32px;
+    font-family: "微软雅黑";
+}
+
+.input {
+    border: 1px solid #6666FF;
+}

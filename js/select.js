@@ -5,14 +5,14 @@ $("#parent *").click(function (e) {
 		//alert("你点了链接一！");
 		if (situation == 0) {
 			$("#a0").text("比较数据还是相关数据");
-			$("#a1").text("yes");
-			$("#a2").text("no");
+			$("#a1").text("比较数据");
+			$("#a2").text("相关数据");
 			
 			situation = 1;
 		}
 
 		else if (situation == 1) {
-			$("#a0").text("比较数据");
+			$("#a0").text("是组间比较吗？");
 			$("#a1").text("yes");
 			$("#a2").text("no");
 			
@@ -79,7 +79,7 @@ $("#parent *").click(function (e) {
 		}
 
 		else if (situation == 10) {
-			$("#a0").text("比较数据");
+			$("#a0").text("是组间比较吗？");
 			$("#a1").text("yes");
 			$("#a2").text("no");
 			situation = 11;
@@ -131,8 +131,8 @@ $("#parent *").click(function (e) {
 
 		if (situation == 0) {
 			$("#a0").text("比较数据还是相关数据");
-			$("#a1").text("yes");
-			$("#a2").text("no");
+			$("#a1").text("比较数据");
+			$("#a2").text("相关数据");
 			situation = 10;
 		}
 
@@ -144,7 +144,7 @@ $("#parent *").click(function (e) {
 		}
 		//结论
 		else if (situation == 2) {
-			$("#a0").text("比较数据");
+			$("#a0").text("是组间比较吗？");
 			$("#decision").text("相关性分析和回归分析");
 			$("#a1").text("yes");
 			$("#a2").text("no");
@@ -260,3 +260,5 @@ $("#parent *").click(function (e) {
 	}
 	$("#situation").text(situation);
 });
+
+
