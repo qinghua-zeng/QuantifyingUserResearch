@@ -15,9 +15,12 @@ $(document).ready(function () {//传说中的ready
 
 });
 
-
+var t95=[12.71,4.3,3.18,2.78,2.57,2.45,2.36,2.31,2.26,2.23,2.2,2.18,2.16,2.14,2.13];
 
 function getString(str) {
+
+
+
 	this.array;
 	this.sum=0;
 	this.array = str.split(",");
@@ -26,12 +29,84 @@ function getString(str) {
 		this.array[i]=parseFloat(this.array[i]);
 		this.sum=this.sum+this.array[i];
 	}
-	this.average=this.sum/this.array.length;
-	//window.alert(this.array.length);
-	$("#sum").val(this.sum);
-	$("#average").val(this.average);
-	$("#median").val(median(this.array));
+	this.mean=this.sum/this.array.length;
+	
+	this.deviations = this.array.map(function(x){return x-this.mean;});
+	//this.stddev=Math.sqrt(this.deviations.map(square).reduce(sum)/(data.length-1));
+	//this.standardDeviation=Math.sqrt(this.deviations.map(square).reduce(sum)/(this.array.length-1));
 
+	this.temp=0;
+	for(let i=0;i<this.deviations.length;i++){
+		this.temp+=this.deviations[i]*this.deviations[i];
+	}
+	//window.alert(this.temp);
+	this.stddev=Math.sqrt(this.temp/(this.array.length-1));//样本标准差SD
+	this.stdError=this.stddev/Math.sqrt(this.array.length);
+	this.MarginOfError=t95[this.array.length-2]*this.stdError;
+	this.Tmin=this.mean-this.MarginOfError;
+	this.Tmax=this.mean+this.MarginOfError;
+	
+	this.psd = varianceArr(this.array);//总体标准偏差的方差(PSD)
+	$("#sum").val(this.sum);
+	$("#average").val(this.mean);
+	$("#median").val(median(this.array));
+	$("#Deviations").val(this.deviations);
+	$("#standardDeviation").val(this.stddev);
+	$("#standardError").val(this.stdError);
+	$("#MarginOfError").val(this.MarginOfError);
+	$("#tMin").val(this.Tmin);
+	$("#tMax").val(this.Tmax);
+	
+	
+
+	
+
+}
+
+/* function myStatistic(){
+	this.sum = function(x,y){ return x+y;};　　//求和函数
+	this.square = function(x){ return x*x;};　　//数组中每个元素求它的平方
+	
+	this.data = [1,1,3,5,5];　　//
+	this.mean = this.data.reduce(this.sum)/this.data.length;
+	this.deviations = data.map(function(x){return x-this.mean;});
+	this.stddev = Math.sqrt(deviations.map(this.square).reduce(this.sum)/(this.data.length-1));
+	return this.stddev;
+} */
+
+
+//总体标准偏差的方差(PSD)
+function varianceArr(arr) {
+    let s,
+        ave,
+        sum = 0,
+        sums=0,
+        len = arr.length;
+    for (let i = 0; i < len; i++) {
+        sum += Number(arr[i]);
+    }
+    ave = sum / len;
+    for(let i = 0; i < len; i++){
+        sums+=(Number(arr[i])- ave)*(Number(arr[i])- ave)
+    }
+    s=(sums/len).toFixed(4);
+    return s;
+};
+
+
+function variance1(numbers){  
+    this.mean = 0;  
+    this.sum = 0;  
+	window.alert(0);
+    for(var i=0;i<numbers.length;i++){  
+        this.sum += numbers[i];  
+    }  
+    this.mean = this.sum / numbers.length;  
+    this.sum = 0;  
+    for(var i=0;i<numbers.length;i++){  
+        this.sum += Math.pow(numbers[i] - this.mean , 2);  
+    }  
+    return this.sum / numbers.length;  
 }
 
 function median(args){

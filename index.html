@@ -5,449 +5,488 @@
     <meta charset="utf-8">
     <title>MDes Qinghua</title>
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/simple-statistics.js"></script>
     <link rel="stylesheet" href="css/main.css" />
     <script type="text/javascript" src="js/calculating.js"></script>
     <script type="text/javascript" src="js/split.js"></script>
     <script type="text/javascript" src="js/statistic.js"></script>
-    <script type="text/javascript" src="js/simple-statistics.js"></script>
+    
     <script type="text/javascript" src="js/wald.js"></script>
     <script type="text/javascript" src="js/tConfidenceInterval.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script> -->
+
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <!-- <body onload="getString('周晓白|52|dd|44|fff')"> -->
 
 <body>
-    <div>
-        <p class="center">Decision Maker</p>
-        <div id="parent" class="center">
-            <p id="a0" class="center">哪种类型数据</p>
-            <button id="a1" href="javascript:void(0);">连续型</button>
-            <button id="a2" href="javascript:void(0);">离散型</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 dark">
+                <p class="center">Decision Maker</p>
+                <div id="parent" class="center">
+                    <p id="a0" class="center">哪种类型数据</p>
+                    <button id="a1" href="javascript:void(0);">连续型</button>
+                    <button id="a2" href="javascript:void(0);">离散型</button>
 
-            <p class="center">需要使用的是：</p>
-            <p id="decision"></p>
+                    <p class="center">需要使用的是：</p>
+                    <p id="decision"></p>
 
-            <span>Situation:</span><span id="situation"></span>
+                    <span>Situation:</span><span id="situation"></span>
+                </div>
+                <script type="text/javascript" src="js/select.js"></script>
+            </div>
+            <div class="col-sm-6 blue">
+                <h2>t置信区间</h2>
+                连续型数据:<textarea cols="20" rows="2" name="textarea" id="textarea"></textarea>
+
+                <div>置信区间:<input type="text" id="num2"></div>
+                <div><input type="button" value=" evaluate " id="evaluate">
+                    <div>Sum:<input type="text" id="sum" /></div>
+                    <div>average:<input type="text" id="average" />
+                    </div>
+                    <div>median:<input type="text" id="median" />
+                    </div>
+                    <div>Deviation:<input type="text" id="Deviations" />
+                    </div>
+                    <div>样本标准差SD:<input type="text" id="standardDeviation" />
+                    </div>
+                    <div>标准误:<input type="text" id="standardError" />
+                    </div>
+                    <div>误差幅度:<input type="text" id="MarginOfError" />
+                    </div>
+                    <div>t最小:<input type="text" id="tMin" />
+                    </div>
+                    <div>t最大:<input type="text" id="tMax" />
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-sm-6 yellow">
+                <h2>Wald</h2>
+                <div>
+                    成功人数
+                    <textarea cols="10" rows="1" name="textareaWald" id="successNum"></textarea>
+                </div>
+
+                <div>
+                    总人数
+                    <textarea cols="10" rows="1" name="textareaWald" id="totalNum"></textarea>
+                </div>
+
+
+                <input type="button" value="caluclate" id="Caluclate_AdjustedWaldConfidenceInterval">
+                <div>valueP:<input type="text" id="valueP" /></div>
+                <div>Padj:<input type="text" id="Padj" /></div>
+                <div>95%正态分布临界值:<input type="text" id="z95" /></div>
+                <div>根号下那堆:<input type="text" id="radical" /></div>
+                <div>区间最小值:<input type="text" id="waldMin" /></div>
+                <div>区间最大值:<input type="text" id="waldMax" /></div>
+            </div>
+
+            <div class="col-sm-6 center dark">
+                <h2>t Confidence Interval</h2>
+                <div>
+                    成功人数
+                    <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+                </div>
+        
+                <input type="button" value="caluclate" id="Caluclate_tConfidenceInterval">
+                <div>value2:<input type="text" id="value2" /></div>
+        
+            </div>
+
+            <div class="col-sm-6 center pink">
+                <h2>3 中位数置信区间（3）</h2>
+                <div>
+                    成功人数
+                    <textarea cols="10" rows="1" name="textareaWald" id="ConfidenceIntervalAroundMedian1"></textarea>
+                </div>
+        
+                <input type="button" value="caluclate" id="Caluclate_ConfidenceIntervalAroundMedian">
+                <div>value2:<input type="text" id="ConfidenceIntervalAroundMedian2" /></div>
+        
+            </div>
         </div>
-        <script type="text/javascript" src="js/select.js"></script>
+    </div>
+
+
+    <div>
+
     </div>
 
     <!-- 常规统计参数 -->
     <div class="center dark">
-        <h2>Median</h2>
-        连续型数据:<textarea cols="40" rows="2" name="textarea" id="textarea"></textarea>
 
-        <div>置信区间:<input type="text" id="num2"></div>
-        <div><input type="button" value=" evaluate " id="evaluate">
-            <div>Sum:<input type="text" id="sum" /></div>
-            <div>average:<input type="text" id="average" />
-            </div>
-            <div>median:<input type="text" id="median" />
-            </div>
-        </div>
 
     </div>
 
     <!--1 Wald -->
     <div class="center">
-        <h2>Wald</h2>
-        <div>
-            成功人数
-            <textarea cols="10" rows="1" name="textareaWald" id="successNum"></textarea>
-        </div>
 
-        <div>
-            总人数
-            <textarea cols="10" rows="1" name="textareaWald" id="totalNum"></textarea>
-        </div>
-
-
-        <input type="button" value="caluclate" id="Caluclate_AdjustedWaldConfidenceInterval">
-        <div>valueP:<input type="text" id="valueP" /></div>
-        <div>Padj:<input type="text" id="Padj" /></div>
-        <div>95%正态分布临界值:<input type="text" id="z95" /></div>
-        <div>根号下那堆:<input type="text" id="radical" /></div>
-        <div>区间最小值:<input type="text" id="waldMin" /></div>
-        <div>区间最大值:<input type="text" id="waldMax" /></div>
 
     </div>
 
     <!--2 t interval -->
-    <div class="center dark">
-        <h2>t Confidence Interval</h2>
+    
+
+    <!-- 3 中位数置信区间（3） -->
+    
+
+    <!-- 4 t（log）置信区间（3） -->
+    <div class="col-sm-6 center dark">
+        <h2>4 t（log）置信区间（3）</h2>
         <div>
             成功人数
             <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
         </div>
 
-        <input type="button" value="caluclate" id="Caluclate_tConfidenceInterval">
+        <input type="button" value="caluclate" id="Caluclate_tLogConfidenceInterval">
         <div>value2:<input type="text" id="value2" /></div>
 
     </div>
 
- <!-- 3 中位数置信区间（3） -->
- <div class="center dark">
-    <h2>3 中位数置信区间（3）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="ConfidenceIntervalAroundMedian1"></textarea>
+    <!-- 5 单样本t（log）检验（4） -->
+    <div class="col-sm-6 center dark">
+        <h2>5 单样本t（log）检验（4）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
+
+        <input type="button" value="caluclate" id="Caluclate_OneSampleTLog">
+        <div>value2:<input type="text" id="value2" /></div>
+
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_ConfidenceIntervalAroundMedian">
-    <div>value2:<input type="text" id="ConfidenceIntervalAroundMedian2" /></div>
+    <!-- 6 单样本t检验（4） -->
+    <div class="center dark">
+        <h2>6 单样本t检验（4）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="Caluclate_OneSampleT">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 4 t（log）置信区间（3） -->
- <div class="center dark">
-    <h2>4 t（log）置信区间（3）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_tLogConfidenceInterval">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 7 单样本二项式（4） -->
+    <div class="center dark">
+        <h2>7 单样本二项式（4）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="Caluclate_OneSampleBinomial">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 5 单样本t（log）检验（4） -->
- <div class="center dark">
-    <h2>5 单样本t（log）检验（4）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_OneSampleTLog">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 8 单样本z检验（4） -->
+    <div class="center dark">
+        <h2>8 单样本z检验（4）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="Caluclate_OneSampleZTest ">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 6 单样本t检验（4） -->
- <div class="center dark">
-    <h2>6 单样本t检验（4）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_OneSampleT">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 9 双样本t检验（5）-->
+    <div class="center dark">
+        <h2>9 双样本t检验（5）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="Caluclate_TwoSampleT">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 7 单样本二项式（4） -->
- <div class="center dark">
-    <h2>7 单样本二项式（4）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_OneSampleBinomial">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 10 配对t检验（5） -->
+    <div class="center dark">
+        <h2>10 配对t检验（5）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="Caluclate_PairedT">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 8 单样本z检验（4） -->
- <div class="center dark">
-    <h2>8 单样本z检验（4）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_OneSampleZTest ">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 11 N-1 双比率检验和Fisher精确检验（5） -->
+    <div class="center dark">
+        <h2>11 N-1 双比率检验和Fisher精确检验（5）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="Caluclate_N1TwoProportionTestAndFisherExactTest ">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 9 双样本t检验（5）-->
- <div class="center dark">
-    <h2>9 双样本t检验（5）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_TwoSampleT">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 12 McNemar 精确检验（5） -->
+    <div class="center dark">
+        <h2>12 McNemar 精确检验（5）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="Caluclate_McNemarExactTest ">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 10 配对t检验（5） -->
- <div class="center dark">
-    <h2>10 配对t检验（5）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_PairedT">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 13 方差分析或多重配对t检验（5.2.1） -->
+    <div class="center dark">
+        <h2>13 方差分析或多重样本t检验（10.5）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="Caluclate_AnovaOrMultiplePairedT ">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 11 N-1 双比率检验和Fisher精确检验（5） -->
- <div class="center dark">
-    <h2>11 N-1 双比率检验和Fisher精确检验（5）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_N1TwoProportionTestAndFisherExactTest ">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 14 方差分析或多重双样本t检验（5.2.3） -->
+    <div class="center dark">
+        <h2>14 方差分析或多重样本t检验（10.5）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="Caluclate_AnovaOrMultipleTwoSampleT ">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 12 McNemar 精确检验（5） -->
- <div class="center dark">
-    <h2>12 McNemar 精确检验（5）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_McNemarExactTest ">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 15 卡方（11） -->
+    <div class="center dark">
+        <h2>15 卡方（11）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="Caluclate_ChiSquare ">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 13 方差分析或多重配对t检验（5.2.1） -->
- <div class="center dark">
-    <h2>13 方差分析或多重样本t检验（10.5）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_AnovaOrMultiplePairedT ">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 16 比例差异的Wald校正（11） -->
+    <div class="center dark">
+        <h2>16 比例差异的Wald校正（11）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="Caluclate_AdjustedWaldDifferenceInProportion">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 14 方差分析或多重双样本t检验（5.2.3） -->
- <div class="center dark">
-    <h2>14 方差分析或多重样本t检验（10.5）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_AnovaOrMultipleTwoSampleT ">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 17 配对比例差异的Wald校正置信区间（5） -->
+    <div class="center dark">
+        <h2>17 配对比例差异的Wald校正置信区间（5）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate"
+            id="Caluclate_AdjustedWaldConfidenceInterval ForDifferenceInMatchedProportions">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 15 卡方（11） -->
- <div class="center dark">
-    <h2>15 卡方（11）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_ChiSquare ">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 18 相关性（10） -->
+    <div class="center dark">
+        <h2>18 相关性（10）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="Caluclate_Correlation">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 16 比例差异的Wald校正（11） -->
- <div class="center dark">
-    <h2>16 比例差异的Wald校正（11）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_AdjustedWaldDifferenceInProportion">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 19 回归分析（10） -->
+    <div class="center dark">
+        <h2>19 回归分析（10）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="Caluclate_RegressionAnalysis ">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 17 配对比例差异的Wald校正置信区间（5） -->
- <div class="center dark">
-    <h2>17 配对比例差异的Wald校正置信区间（5）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_AdjustedWaldConfidenceInterval ForDifferenceInMatchedProportions">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 20 Phi相关性 -->
+    <div class="center dark">
+        <h2>20 Phi相关性</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="phi">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 18 相关性（10） -->
- <div class="center dark">
-    <h2>18 相关性（10）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_Correlation">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 21 平均值误差的范围（6） -->
+    <div class="center dark">
+        <h2>21 平均值误差的范围（6）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="Caluclate_MarginOfErrorMean">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 19 回归分析（10） -->
- <div class="center dark">
-    <h2>19 回归分析（10）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_RegressionAnalysis ">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 22 比例误差的幅度（6） -->
+    <div class="center dark">
+        <h2>22 比例误差的幅度（6）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="Caluclate_MarginOfErrorProportion ">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 20 Phi相关性 -->
- <div class="center dark">
-    <h2>20 Phi相关性</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="phi">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 23 均值与基准比较（6） -->
+    <div class="center dark">
+        <h2>23 均值与基准比较（6）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="Caluclate_MeantoCriterion">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 21 平均值误差的范围（6） -->
- <div class="center dark">
-    <h2>21 平均值误差的范围（6）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_MarginOfErrorMean">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 24 比例与基准比较（6）-->
+    <div class="center dark">
+        <h2>24 比例与基准比较（6）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="Caluclate_ProportionToCriterion">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 22 比例误差的幅度（6） -->
- <div class="center dark">
-    <h2>22 比例误差的幅度（6）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_MarginOfErrorProportion ">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 25 双均数（6） -->
+    <div class="center dark">
+        <h2>25 双均数（6）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value=" 双均数 " id="???">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 23 均值与基准比较（6） -->
- <div class="center dark">
-    <h2>23 均值与基准比较（6）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_MeantoCriterion">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 26 配对均数（6） -->
+    <div class="center dark">
+        <h2>26 配对均数（6）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="tConfidenceIntervalCalculate">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 24 比例与基准比较（6）-->
- <div class="center dark">
-    <h2>24 比例与基准比较（6）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="Caluclate_ProportionToCriterion">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 27 双比例（6）-->
+    <div class="center dark">
+        <h2>27 双比例（6）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="tConfidenceIntervalCalculate">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 25 双均数（6） -->
- <div class="center dark">
-    <h2>25 双均数（6）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value=" 双均数 " id="???">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 28 配对比例（6） -->
+    <div class="center dark">
+        <h2>28 配对比例（6）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="tConfidenceIntervalCalculate">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 26 配对均数（6） -->
- <div class="center dark">
-    <h2>26 配对均数（6）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="tConfidenceIntervalCalculate">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 29 线性回归的样本大小（10） -->
+    <div class="center dark">
+        <h2>29 线性回归的样本大小（10）</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="Caluclate_SampleSizeForLinearRegression ">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 27 双比例（6）-->
- <div class="center dark">
-    <h2>27 双比例（6）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
 
-    <input type="button" value="caluclate" id="tConfidenceIntervalCalculate">
-    <div>value2:<input type="text" id="value2" /></div>
+    <!-- 30 问题发现所需的样本量 -->
+    <div class="center dark">
+        <h2>30 问题发现所需的样本量</h2>
+        <div>
+            成功人数
+            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
+        </div>
 
-</div>
+        <input type="button" value="caluclate" id="tConfidenceIntervalCalculate">
+        <div>value2:<input type="text" id="value2" /></div>
 
- <!-- 28 配对比例（6） -->
- <div class="center dark">
-    <h2>28 配对比例（6）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
     </div>
-
-    <input type="button" value="caluclate" id="tConfidenceIntervalCalculate">
-    <div>value2:<input type="text" id="value2" /></div>
-
-</div>
-
-<!-- 29 线性回归的样本大小（10） -->
-<div class="center dark">
-    <h2>29 线性回归的样本大小（10）</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
-    </div>
-
-    <input type="button" value="caluclate" id="Caluclate_SampleSizeForLinearRegression ">
-    <div>value2:<input type="text" id="value2" /></div>
-
-</div>
-
-<!-- 30 问题发现所需的样本量 -->
-<div class="center dark">
-    <h2>30 问题发现所需的样本量</h2>
-    <div>
-        成功人数
-        <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
-    </div>
-
-    <input type="button" value="caluclate" id="tConfidenceIntervalCalculate">
-    <div>value2:<input type="text" id="value2" /></div>
-
-</div>
 
 </body>
 
