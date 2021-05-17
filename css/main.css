@@ -4,7 +4,7 @@
 
 button {
     width: 200px;
-    height: 300px;
+    height: 30px;
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -50,4 +50,31 @@ span {
 
 .input {
     border: 1px solid #6666FF;
+}
+
+.wide {
+    width:500px;
+    height:100px;
+}
+
+input[type=text], textarea {
+    -webkit-transition: all 0.10s ease-in-out;
+    -moz-transition: all 0.10s ease-in-out;
+    -ms-transition: all 0.10s ease-in-out;
+    -o-transition: all 0.10s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #ddd;
+}
+  
+input[type=text]:focus, textarea:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.dark {
+    background-color: rgb(221, 221, 221);
 }
