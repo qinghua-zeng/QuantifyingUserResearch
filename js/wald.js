@@ -1,16 +1,3 @@
-$(document).ready(function () {//传说中的ready
-	$("form div input:text").addClass("input");//找到form里面div包含的input标签类型为text的元素 jQuery强悍
-	$("#Caluclate_AdjustedWaldConfidenceInterval").click(function () {
-	
-		CalWald1($("#successNum").val(),$("#totalNum").val());
-		
-	});
-	
-
-
-});
-
-
 
 function CalWald1(strSuccess, strTotal) {
 	this.successNum=parseFloat(strSuccess);

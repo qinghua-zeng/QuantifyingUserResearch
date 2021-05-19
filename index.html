@@ -7,10 +7,11 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/simple-statistics.js"></script>
     <link rel="stylesheet" href="css/main.css" />
+    <script type="text/javascript" src="js/simpleCal.js"></script>
     <script type="text/javascript" src="js/calculating.js"></script>
     <script type="text/javascript" src="js/split.js"></script>
     <script type="text/javascript" src="js/statistic.js"></script>
-    
+
     <script type="text/javascript" src="js/wald.js"></script>
     <script type="text/javascript" src="js/tConfidenceInterval.js"></script>
 
@@ -39,12 +40,30 @@
                 </div>
                 <script type="text/javascript" src="js/select.js"></script>
             </div>
+
+            <!-- 4 t（log）置信区间（3） -->
+            <div class="col-sm-6 center pink">
+                <h2>4 t（log）置信区间（3）</h2>
+                <div>
+                    time Data
+                    <textarea cols="20" rows="4" name="textareaWald" id="textareaTlog"></textarea>
+                </div>
+
+                <input type="button" value="caluclate" id="Caluclate_tLogConfidenceInterval">
+                <div>SampleSize:<input type="text" id="TlogSampleSize" />
+                    <textarea cols="20" rows="4" name="tlog" id="Tlogs"></textarea>
+                </div>
+                <div>logMean:<input type="text" id="TlogMean" /></div>
+                <div>numLogStdDev:<input type="text" id="numLogStdDev" /></div>
+            </div>
+
+            <!--2 t interval -->
             <div class="col-sm-6 blue">
                 <h2>t置信区间</h2>
                 连续型数据:<textarea cols="20" rows="2" name="textarea" id="textarea"></textarea>
 
                 <div>置信区间:<input type="text" id="num2"></div>
-                <div><input type="button" value=" evaluate " id="evaluate">
+                <div><input type="button" value=" evaluate " id="Caluclate_tConfidence">
                     <div>Sum:<input type="text" id="sum" /></div>
                     <div>average:<input type="text" id="average" />
                     </div>
@@ -62,7 +81,7 @@
                     </div>
                     <div>t最大:<input type="text" id="tMax" />
                     </div>
-                    
+
                 </div>
             </div>
             <div class="col-sm-6 yellow">
@@ -93,10 +112,10 @@
                     成功人数
                     <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
                 </div>
-        
+
                 <input type="button" value="caluclate" id="Caluclate_tConfidenceInterval">
                 <div>value2:<input type="text" id="value2" /></div>
-        
+
             </div>
 
             <div class="col-sm-6 center pink">
@@ -105,10 +124,10 @@
                     成功人数
                     <textarea cols="10" rows="1" name="textareaWald" id="ConfidenceIntervalAroundMedian1"></textarea>
                 </div>
-        
+
                 <input type="button" value="caluclate" id="Caluclate_ConfidenceIntervalAroundMedian">
                 <div>value2:<input type="text" id="ConfidenceIntervalAroundMedian2" /></div>
-        
+
             </div>
         </div>
     </div>
@@ -130,24 +149,13 @@
 
     </div>
 
-    <!--2 t interval -->
-    
+
+
 
     <!-- 3 中位数置信区间（3） -->
-    
 
-    <!-- 4 t（log）置信区间（3） -->
-    <div class="col-sm-6 center dark">
-        <h2>4 t（log）置信区间（3）</h2>
-        <div>
-            成功人数
-            <textarea cols="10" rows="1" name="textareaWald" id="v1"></textarea>
-        </div>
 
-        <input type="button" value="caluclate" id="Caluclate_tLogConfidenceInterval">
-        <div>value2:<input type="text" id="value2" /></div>
 
-    </div>
 
     <!-- 5 单样本t（log）检验（4） -->
     <div class="col-sm-6 center dark">
