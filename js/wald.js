@@ -1,5 +1,5 @@
 
-function CalWald1(strSuccess, strTotal) {
+CalWald1=function (strSuccess, strTotal) {
 	this.successNum=parseFloat(strSuccess);
     this.totalNum=parseFloat(strTotal);
     this.z95=1.96;
@@ -17,7 +17,6 @@ function CalWald1(strSuccess, strTotal) {
    $("#waldMin").val( this.waldMin);
    $("#waldMax").val( this.waldMax);
    $("#Padj").val( this.Padj);
-	
 
 }
 

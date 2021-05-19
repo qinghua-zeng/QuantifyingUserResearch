@@ -90,3 +90,7 @@ input[type=text]:focus, textarea:focus {
 .pink {
     background-color: rgb(255, 201, 188);
 }
+
+.green {
+    background-color: rgb(181, 255, 197);
+}

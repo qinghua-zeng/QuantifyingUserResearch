@@ -1,3 +1,5 @@
+var t95 = [12.71, 4.3, 3.18, 2.78, 2.57, 2.45, 2.36, 2.31, 2.26, 2.23, 2.2, 2.18, 2.16, 2.14, 2.13];
+
 //数组内数值求和
 sumAll2 = function (arr) {
     this.sum2 = 0;
@@ -46,3 +48,32 @@ calNumlog = function (arr){
 
 }
 
+//中位数
+median =function (args) {
+	//let args=[1,2,3,3,6]; //收集参数转为数组
+	args.sort(function (a, b) { return a - b }) //排序
+	//return args;
+	if (args.length % 2 === 0) { //判断数字个数是奇数还是偶数
+		return ((args[args.length / 2] + args[args.length / 2 - 1]) / 2);//偶数个取中间两个数的平均数
+	} else {
+		return args[parseInt(args.length / 2)];//奇数个取最中间那个数
+	}
+}
+
+//总体标准偏差的方差(PSD)
+ varianceArr=function(arr) {
+	let s,
+		ave,
+		sum = 0,
+		sums = 0,
+		len = arr.length;
+	for (let i = 0; i < len; i++) {
+		sum += Number(arr[i]);
+	}
+	ave = sum / len;
+	for (let i = 0; i < len; i++) {
+		sums += (Number(arr[i]) - ave) * (Number(arr[i]) - ave)
+	}
+	s = (sums / len).toFixed(4);
+	return s;
+};
