@@ -15,6 +15,7 @@
 
     <script type="text/javascript" src="js/wald.js"></script>
     <script type="text/javascript" src="js/Caluclate_OneSampleBinomial.js"></script>
+    <script type="text/javascript" src="js/OneSampleZTest.js"></script>
     <script type="text/javascript" src="js/tConfidenceInterval.js"></script>
 
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
@@ -44,21 +45,190 @@
                 <script type="text/javascript" src="js/select.js"></script>
             </div>
 
-            <!-- 5 单样本二项式（4） -->
-            <div class="col-sm-6 center yellow">
-                <h2>05 OneSampleBinomial</h2>
+            <!-- 12 McNemar 精确检验（5） -->
+            <div class="col-sm-6 center green">
+                <h2>12 McNemarExactTest</h2>
                 <div>
                     成功人数
-                    <textarea cols="10" rows="1" name="textareaWald" id="OneSampleBinomialV1"></textarea>
+                    <textarea cols="10" rows="1" name="textareaWald" id="McNemarExactTestV1"></textarea>
                 </div>
 
-                <input type="button" value="caluclate" id="Caluclate_OneSampleBinomial">
-                <div>value2:<input type="text" id="OneSampleBinomialV2" /></div>
+                <input type="button" value="caluclate" id="Caluclate_McNemarExactTest ">
+                <div>value2:<input type="text" id="McNemarExactTestV2" /></div>
 
             </div>
 
-            
+            <!-- 11 N-1 双比率检验（5） -->
+            <div class="col-sm-6 center pink">
+                <h2>11 N-1 N1TwoProportionTest</h2>
+                <div>
+                    组1成功人数
+                    <textarea cols="10" rows="1" name="textareaWald" id="q11G1SuccessNum"></textarea>
+                </div>
 
+                <div>
+                    组1总人数
+                    <textarea cols="10" rows="1" name="textareaWald" id="q11G1Total"></textarea>
+                </div>
+
+                <div>
+                    组2成功人数
+                    <textarea cols="10" rows="1" name="textareaWald" id="q11G2SuccessNum"></textarea>
+                </div>
+
+                <div>
+                    组2总人数
+                    <textarea cols="10" rows="1" name="textareaWald" id="q11G2Total"></textarea>
+                </div>
+
+                <input type="button" value="caluclate" id="Caluclate_N1TwoProportionTest">
+                <div>p:<input type="text" id="q11z" /></div>
+
+            </div>
+
+            <!-- 10 双样本t检验（5） -->
+            <div class="col-sm-6 center blue">
+                <h2>10 TwoSampleT</h2>
+                <div>
+                    nums1
+                    <textarea cols="10" rows="1" name="textareaWald" id="q10nums1"></textarea>
+                </div>
+
+                <div>
+                    nums2
+                    <textarea cols="10" rows="1" name="textareaWald" id="q10nums2"></textarea>
+                </div>
+
+                <input type="button" value="caluclate" id="Caluclate_TwoSampleT">
+
+                <div>q10sampleSize1:<input type="text" id="q10sampleSize1" /></div>
+
+                <div>q10sampleSize2:<input type="text" id="q10sampleSize2" /></div>
+
+                <div>s1:<input type="text" id="q10s1" /></div>
+
+                <div>s2:<input type="text" id="q10s2" /></div>
+
+                <div>q10t:<input type="text" id="q10t" /></div>
+
+            </div>
+
+            <!-- 09 配对t检验（5）-->
+            <div class="col-sm-6 center yellow">
+                <h2>09 PairedT</h2>
+                <div>
+                    PairedTV1
+                    <textarea cols="20" rows="5" name="textareaWald" id="PairedTV1"></textarea>
+                </div>
+
+                <div>
+                    PairedTV2(暂不用)
+                    <textarea cols="10" rows="1" name="textareaWald" id="PairedTV2"></textarea>
+                </div>
+
+                <input type="button" value="caluclate" id="Caluclate_PairedT">
+                <div>q09t:<input type="text" id="q09t" /></div>
+
+            </div>
+
+            <!-- 08 单样本t（log）检验（4） -->
+            <div class="col-sm-6 center green">
+                <h2>08 OneSampleTLog</h2>
+                <div>
+                    任务时间
+                    <textarea cols="10" rows="5" name="textareaWald" id="OneSampleTLogV1"></textarea>
+                </div>
+
+                <div>
+                    基准时间
+                    <textarea cols="10" rows="1" name="textareaWald" id="q08Benchmark"></textarea>
+                </div>
+
+                <input type="button" value="caluclate" id="Caluclate_OneSampleTLog">
+                <div>ePowLogMean:<input type="text" id="ePowLogMean" /></div>
+
+                <div>q08logMean:<input type="text" id="q08logMean" /></div>
+
+                <div>stdErrorLogStdDev:<input type="text" id="stdErrorLogStdDev" /></div>
+
+                <div>基数的对数时间:<input type="text" id="q08lnU" /></div>
+
+                <div>t:<input type="text" id="q08t" /></div>
+            </div>
+
+            <!-- 07 单样本t检验（4） -->
+            <div class="col-sm-6 center pink">
+                <h2>07 OneSampleT</h2>
+                <div>
+                    q07score
+                    <textarea cols="10" rows="1" name="textareaWald" id="q07score"></textarea>
+                </div>
+
+                <div>
+                    q07Num
+                    <textarea cols="10" rows="1" name="textareaWald" id="q07Num"></textarea>
+                </div>
+
+                <div>
+                    q07s
+                    <textarea cols="10" rows="1" name="textareaWald" id="q07s"></textarea>
+                </div>
+
+
+                <div>
+                    q07benchmark
+                    <textarea cols="10" rows="1" name="textareaWald" id="q07benchmark"></textarea>
+                </div>
+
+                <input type="button" value="caluclate" id="Caluclate_OneSampleT">
+                <div>t<input type="text" id="q07t" /></div>
+
+            </div>
+
+            <!-- 6 单样本z检验（4） -->
+            <div class="col-sm-6 center blue">
+                <h2>06 OneSampleZTest</h2>
+                <div>
+                    q06successNum
+                    <textarea cols="10" rows="1" name="textareaWald" id="q06successNum"></textarea>
+                </div>
+                <div>
+                    q06total
+                    <textarea cols="10" rows="1" name="textareaWald" id="q06total"></textarea>
+                </div>
+
+                <div>
+                    q06benchmark
+                    <textarea cols="10" rows="1" name="textareaWald" id="q06benchmark"></textarea>
+                </div>
+
+                <input type="button" value="caluclate" id="Caluclate_OneSampleZTest">
+                <div>q06z:<input type="text" id="q06z" /></div>
+
+            </div>
+
+            <!-- 5 单样本二项式 -->
+            <div class="col-sm-6 center yellow">
+                <h2>05 OneSampleBinomial</h2>
+                <div>
+                    q05successNum
+                    <textarea cols="10" rows="1" name="textareaWald" id="q05successNum"></textarea>
+                </div>
+                <div>
+                    q05total
+                    <textarea cols="10" rows="1" name="textareaWald" id="q05total"></textarea>
+                </div>
+                <div>
+                    q05rate
+                    <textarea cols="10" rows="1" name="textareaWald" id="q05rate"></textarea>
+                </div>
+
+                <input type="button" value="caluclate" id="Caluclate_OneSampleBinomial">
+                <div>pSum:<input type="text" id="OneSampleBinomialV2" /></div>
+
+            </div>
+
+            <!-- 4 中位数置信区间 -->
             <div class="col-sm-6 center green">
                 <h2>4 中位数置信区间（3）</h2>
                 <div>
@@ -156,21 +326,6 @@
     </div>
 
 
-    <div>
-
-    </div>
-
-    <!-- 常规统计参数 -->
-    <div class="center dark">
-
-
-    </div>
-
-    <!--1 Wald -->
-    <div class="center">
-
-
-    </div>
 
 
 
@@ -180,98 +335,15 @@
 
 
 
-    <!-- 5 单样本t（log）检验（4） -->
-    <div class="col-sm-6 center dark">
-        <h2>5 OneSampleTLog</h2>
-        <div>
-            成功人数
-            <textarea cols="10" rows="1" name="textareaWald" id="OneSampleTLogV1"></textarea>
-        </div>
-
-        <input type="button" value="caluclate" id="Caluclate_OneSampleTLog">
-        <div>value2:<input type="text" id="OneSampleTLogV2" /></div>
-
-    </div>
-
-    <!-- 6 单样本t检验（4） -->
-    <div class="center dark">
-        <h2>6 OneSampleT</h2>
-        <div>
-            成功人数
-            <textarea cols="10" rows="1" name="textareaWald" id="OneSampleTV1"></textarea>
-        </div>
-
-        <input type="button" value="caluclate" id="Caluclate_OneSampleT">
-        <div>value2:<input type="text" id="OneSampleTV2" /></div>
-
-    </div>
 
 
 
-    <!-- 8 单样本z检验（4） -->
-    <div class="center dark">
-        <h2>8 OneSampleZTest</h2>
-        <div>
-            成功人数
-            <textarea cols="10" rows="1" name="textareaWald" id="OneSampleZTestV1"></textarea>
-        </div>
 
-        <input type="button" value="caluclate" id="Caluclate_OneSampleZTest ">
-        <div>value2:<input type="text" id="OneSampleZTestV2" /></div>
 
-    </div>
 
-    <!-- 9 双样本t检验（5）-->
-    <div class="center dark">
-        <h2>9 TwoSampleT</h2>
-        <div>
-            成功人数
-            <textarea cols="10" rows="1" name="textareaWald" id="TwoSampleTV1"></textarea>
-        </div>
 
-        <input type="button" value="caluclate" id="Caluclate_TwoSampleT">
-        <div>value2:<input type="text" id="TwoSampleTV2" /></div>
 
-    </div>
 
-    <!-- 10 配对t检验（5） -->
-    <div class="center dark">
-        <h2>10 PairedT</h2>
-        <div>
-            成功人数
-            <textarea cols="10" rows="1" name="textareaWald" id="PairedTV1"></textarea>
-        </div>
-
-        <input type="button" value="caluclate" id="Caluclate_PairedT">
-        <div>value2:<input type="text" id="PairedTV2" /></div>
-
-    </div>
-
-    <!-- 11 N-1 双比率检验和Fisher精确检验（5） -->
-    <div class="center dark">
-        <h2>11 N-1 N1TwoProportionTestAndFisherExactTest</h2>
-        <div>
-            成功人数
-            <textarea cols="10" rows="1" name="textareaWald" id="N1TwoProportionTestAndFisherExactTestV1"></textarea>
-        </div>
-
-        <input type="button" value="caluclate" id="Caluclate_N1TwoProportionTestAndFisherExactTest ">
-        <div>value2:<input type="text" id="N1TwoProportionTestAndFisherExactTestV2" /></div>
-
-    </div>
-
-    <!-- 12 McNemar 精确检验（5） -->
-    <div class="center dark">
-        <h2>12 McNemarExactTest</h2>
-        <div>
-            成功人数
-            <textarea cols="10" rows="1" name="textareaWald" id="McNemarExactTestV1"></textarea>
-        </div>
-
-        <input type="button" value="caluclate" id="Caluclate_McNemarExactTest ">
-        <div>value2:<input type="text" id="McNemarExactTestV2" /></div>
-
-    </div>
 
     <!-- 13 方差分析或多重配对t检验（5.2.1） -->
     <div class="center dark">

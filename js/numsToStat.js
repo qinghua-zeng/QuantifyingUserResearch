@@ -1,50 +1,48 @@
 numsToStat = function (nums) {
 
-    this.array = nums;
-    this.sum = 0;
-    this.median=median(this.array);
-    this.sum = sumAll2(this.array);
-    this.mean = this.sum / this.array.length;
-    this.sampleSize = this.array.length;
-    this.t95Value = t95[this.sampleSize - 2];
-    this.deviations = calDev(this.array);
-    /* this.temp = 0;
-    for (let i = 0; i < this.deviations.length; i++) {
-        this.temp += this.deviations[i] * this.deviations[i];
-    } */
-    //window.alert(this.temp);
-    this.stddev = calStdDev(this.array);
-    //this.stddev = Math.sqrt(this.temp / (this.array.length - 1));//样本标准差SD
-    this.stdError = this.stddev / Math.sqrt(this.array.length);
-    this.MarginOfError = this.t95Value * this.stdError;
-    this.Tmin = this.mean - this.MarginOfError;
-    this.Tmax = this.mean + this.MarginOfError;
-    //计算时间对数们
-    //calNumlog([94,95,96]);
-    this.numLogs = calNumlog(this.array);
-    this.numLogStdDev = calStdDev(this.numLogs);
-    this.stdErrorLogStdDev = this.numLogStdDev / Math.sqrt(this.sampleSize);
-    /* this.numLogs = new Array();
-    for (let i = 0; i < this.array.length; i++) {
-        this.numLogs[i] = Math.log(this.array[i]);
-    } */
-    //求和
-    this.logSum = sumAll2(this.numLogs);
-    //求log平均
-    this.logMean = this.logSum / this.numLogs.length;
-    this.logMarginError = this.t95Value * this.stdErrorLogStdDev;
-    this.logConfiMin = this.logMean - this.logMarginError;
-    this.logConfiMax = this.logMean + this.logMarginError;
-    this.ConfiMin = Math.pow(Math.E, this.logConfiMin);
-    this.ConfiMax = Math.pow(Math.E, this.logConfiMax);
-    //this.psd = varianceArr(this.array);//总体标准偏差的方差(PSD)
+    //变量声明
+    {
+        this.array = nums;
+        this.sum = 0;
+        this.median = median(this.array);
+        this.sum = sumAll2(this.array);
+        this.mean = this.sum / this.array.length;
+        this.sampleSize = this.array.length;
+        this.t95Value = t95[this.sampleSize - 2];
+        //window.alert(this.t95Value);
+        this.deviations = calDev(this.array);
+        
+        this.stddev = calStdDev(this.array);
+        //this.stddev = Math.sqrt(this.temp / (this.array.length - 1));//样本标准差SD
+        this.stdError = this.stddev / Math.sqrt(this.array.length);
+        this.MarginOfError = this.t95Value * this.stdError;
+        this.Tmin = this.mean - this.MarginOfError;
+        this.Tmax = this.mean + this.MarginOfError;
+        //计算时间对数们
+        
+        this.numLogs = calNumlog(this.array);
+        this.numLogStdDev = calStdDev(this.numLogs);
+        this.stdErrorLogStdDev = this.numLogStdDev / Math.sqrt(this.sampleSize);
+        
+        //求和
+        this.logSum = sumAll2(this.numLogs);
+        //求log平均
+        this.logMean = this.logSum / this.numLogs.length;
+        this.ePowLogMean = Math.pow(Math.E, this.logMean);
+        this.logMarginError = this.t95Value * this.stdErrorLogStdDev;
+        this.logConfiMin = this.logMean - this.logMarginError;
+        this.logConfiMax = this.logMean + this.logMarginError;
+        this.ConfiMin = Math.pow(Math.E, this.logConfiMin);
+        this.ConfiMax = Math.pow(Math.E, this.logConfiMax);
+        //this.psd = varianceArr(this.array);//总体标准偏差的方差(PSD)
 
-    this.q04z95=1.96;
-    this.q04p=0.5//
-    this.q04np=this.sampleSize*this.q04p;
-    this.q04stdError=Math.sqrt(this.sampleSize*this.q04p*(1-this.q04p));
-    this.q04Min= this.q04np- this.q04z95*this.q04stdError;
-    this.q04Max=this.q04np+ this.q04z95*this.q04stdError;
+        this.q04z95 = 1.96;
+        this.q04p = 0.5//
+        this.q04np = this.sampleSize * this.q04p;
+        this.q04stdError = Math.sqrt(this.sampleSize * this.q04p * (1 - this.q04p));
+        this.q04Min = this.q04np - this.q04z95 * this.q04stdError;
+        this.q04Max = this.q04np + this.q04z95 * this.q04stdError;
+    }
     //02 t
     this.writeDataT = function () {
         $("#sum").val(this.sum);
@@ -74,20 +72,22 @@ numsToStat = function (nums) {
     this.writeDataMedian = function () {
         $("#ConfidenceIntervalAroundMedian2").val(this.median);
         $("#np").val(this.q04np);
-        $("#q04z95").val( this.q04z95);
+        $("#q04z95").val(this.q04z95);
         $("#q04stdError").val(this.q04stdError);
         $("#q04Min").val(this.q04Min);
         $("#q04Max").val(this.q04Max);
-        
-        
+
+
 
     }
-    //5
-    this.writeDataMedian000 = function () {
-        $("#ConfidenceIntervalAroundMedian2").val(this.sum);
+    //08
+    this.writeDataQ08 = function () {
+        $("#ePowLogMean").val(this.ePowLogMean);
+        $("#stdErrorLogStdDev").val(this.stdErrorLogStdDev);
+        $("#q08logMean").val(this.logMean);
 
     }
-    //6
+    //
     this.writeDataMedian000 = function () {
         $("#ConfidenceIntervalAroundMedian2").val(this.sum);
 

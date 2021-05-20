@@ -77,3 +77,15 @@ median =function (args) {
 	s = (sums / len).toFixed(4);
 	return s;
 };
+
+//阶乘
+factorial= function(num){
+    if(num <= 1){
+        return 1;
+    }else{
+        return num * factorial(num - 1);
+    }
+}
+
+//var sss=factorial(3);
+//window.alert(sss);
