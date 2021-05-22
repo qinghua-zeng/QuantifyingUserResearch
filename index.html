@@ -45,18 +45,109 @@
                 <script type="text/javascript" src="js/select.js"></script>
             </div>
 
+            <!-- 15 比例与基准比较（6）-->
+            <div class="col-sm-6 center pink">
+                <h2>15 检验力</h2>
+                <div>
+                    s
+                    <textarea cols="10" rows="1" name="textareaWald" id="q15s"></textarea>
+                </div>
+                <div>
+                    d
+                    <textarea cols="10" rows="1" name="textareaWald" id="q15d"></textarea>
+                </div>
+
+                <div>
+                    期望信度
+                    <textarea cols="10" rows="1" name="textareaWald" id="q15Expectation"></textarea>%
+                </div>
+                <div>
+                    检验力
+                    <textarea cols="10" rows="1" name="textareaWald" id="q15b"></textarea>%
+                </div>
+
+                <input type="button" value="caluclate" id="Caluclate_ProportionToCriterion">
+
+
+                <div>q15t:<input type="text" id="q15t" /></div>
+
+                <div>q15n:<input type="text" id="q15n" /></div>
+
+            </div>
+
+            <!-- 14 大样本的二项样本量估计（6.5） -->
+            <div class="col-sm-6 center blue">
+                <h2>14 大样本的二项样本量估计</h2>
+                <div>
+                    p
+                    <textarea cols="10" rows="1" name="textareaWald" id="q14p"></textarea>
+                </div>
+                <div>
+                    d
+                    <textarea cols="10" rows="1" name="textareaWald" id="q14d"></textarea>
+                </div>
+                <div>
+                    置信度
+                    <textarea cols="10" rows="1" name="textareaWald" id="q14confi"></textarea>%
+                </div>
+
+                <input type="button" value="caluclate" id="Caluclate_MeantoCriterion">
+                <div>n:<input type="text" id="q14n" /></div>
+
+            </div>
+
+            <!-- 13 平均值误差的范围（6） -->
+            <div class="col-sm-6 center yellow">
+                <h2>13 预估数值（6.2）</h2>
+                <div>
+                    s
+                    <textarea cols="10" rows="1" name="textareaWald" id="q13s"></textarea>
+                </div>
+                <div>
+                    d
+                    <textarea cols="10" rows="1" name="textareaWald" id="q13d"></textarea>
+                </div>
+
+                <div>
+                    期望信度
+                    <textarea cols="10" rows="1" name="textareaWald" id="q13Expectation"></textarea>%
+                </div>
+
+                <input type="button" value="caluclate" id="Caluclate_MarginOfErrorMean">
+
+
+                <div>q13t:<input type="text" id="q13t" /></div>
+
+                <div>q13n:<input type="text" id="q13n" /></div>
+
+            </div>
+
             <!-- 12 McNemar 精确检验（5） -->
             <div class="col-sm-6 center green">
                 <h2>12 McNemarExactTest</h2>
                 <div>
-                    成功人数
-                    <textarea cols="10" rows="1" name="textareaWald" id="McNemarExactTestV1"></textarea>
+                    q12V1
+                    <textarea cols="10" rows="1" name="textareaWald" id="q12V1"></textarea>
                 </div>
 
-                <input type="button" value="caluclate" id="Caluclate_McNemarExactTest ">
-                <div>value2:<input type="text" id="McNemarExactTestV2" /></div>
+                <div>
+                    q12V2
+                    <textarea cols="10" rows="1" name="textareaWald" id="q12V2"></textarea>
+                </div>
+
+                <input type="button" value="caluclate" id="Caluclate_McNemarExactTest">
+
+                <div>b:<input type="text" id="q12b" /></div>
+                <div>c:<input type="text" id="q12c" /></div>
+                <div>单侧检验的中间p值:<input type="text" id="q12SingleP" /></div>
+                <div>双侧检验的中间p值:<input type="text" id="q12DoubleP" /></div>
+                <div>精确p值:<input type="text" id="q12ExactP" /></div>
 
             </div>
+
+
+
+
 
             <!-- 11 N-1 双比率检验（5） -->
             <div class="col-sm-6 center pink">
@@ -451,18 +542,7 @@
 
     </div>
 
-    <!-- 21 平均值误差的范围（6） -->
-    <div class="center dark">
-        <h2>21 MarginOfErrorMean</h2>
-        <div>
-            成功人数
-            <textarea cols="10" rows="1" name="textareaWald" id="MarginOfErrorMeanV1"></textarea>
-        </div>
 
-        <input type="button" value="caluclate" id="Caluclate_MarginOfErrorMean">
-        <div>value2:<input type="text" id="MarginOfErrorMeanV2" /></div>
-
-    </div>
 
     <!-- 22 比例误差的幅度（6） -->
     <div class="center dark">
@@ -477,31 +557,9 @@
 
     </div>
 
-    <!-- 23 均值与基准比较（6） -->
-    <div class="center dark">
-        <h2>23 MeantoCriterion</h2>
-        <div>
-            成功人数
-            <textarea cols="10" rows="1" name="textareaWald" id="MeantoCriterionV1"></textarea>
-        </div>
 
-        <input type="button" value="caluclate" id="Caluclate_MeantoCriterion">
-        <div>value2:<input type="text" id="MeantoCriterionV2" /></div>
 
-    </div>
 
-    <!-- 24 比例与基准比较（6）-->
-    <div class="center dark">
-        <h2>24 ProportionToCriterion</h2>
-        <div>
-            成功人数
-            <textarea cols="10" rows="1" name="textareaWald" id="ProportionToCriterionV1"></textarea>
-        </div>
-
-        <input type="button" value="caluclate" id="Caluclate_ProportionToCriterion">
-        <div>value2:<input type="text" id="ProportionToCriterionV2" /></div>
-
-    </div>
 
     <!-- 25 双均数（6） -->
     <div class="center dark">
