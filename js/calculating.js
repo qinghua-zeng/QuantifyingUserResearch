@@ -216,8 +216,8 @@ $(document).ready(function () {//传说中的ready
 		this.q13d = parseFloat($("#q13d").val());
 		this.q13Expectation = parseFloat($("#q13Expectation").val());
 
-		
-		
+
+
 		this.q13z = getT(this.q13Expectation, 10000);//传入一个大于1000的数计算t95 inf
 		//this.q13n=Math.pow(this.q13z,2)*Math.pow(this.q13s,2)/Math.pow(this.q13d,2);
 
@@ -249,50 +249,71 @@ $(document).ready(function () {//传说中的ready
 		this.q14d = parseFloat($("#q14d").val());
 		this.q14confi = parseFloat($("#q14confi").val());
 
-		this.q14z= getT(this.q14confi,10000);
-		this.q14n=this.q14z*this.q14z*this.q14p*(1-this.q14p)/(this.q14d*this.q14d);
-		
+		this.q14z = getT2(this.q14confi, 10000, 2);//是双侧检验吗？
+		this.q14n = this.q14z * this.q14z * this.q14p * (1 - this.q14p) / (this.q14d * this.q14d);
+
 
 		$("#q14n").val(this.q14n);
 	});
 
-//================24 比例与基准比较（6）====================
-$("#Caluclate_ProportionToCriterion").click(function () {
-	this.q15s = parseFloat($("#q15s").val());
-	this.q15d = parseFloat($("#q15d").val());
-	this.q15Expectation = parseFloat($("#q15Expectation").val());
-	this.q15b = parseFloat($("#q15b").val());
-
-	
-	
-	this.q15z = getT(this.q15b, 10000);//传入一个大于1000的数计算t95 inf
-	//this.q13n=Math.pow(this.q13z,2)*Math.pow(this.q13s,2)/Math.pow(this.q13d,2);
-	this.q15zb = getT(this.q15Expectation, 10000);
-	this.q15n = Math.pow(this.q15z, 2) * this.q15s * this.q15s / (this.q15d * this.q15d);
-
-	this.q15arrayN = new Array();
-	this.q15arrayN[0] = calN(this.q15s, this.q15d, this.q15z+this.q15zb);//
-	this.q15z = getT(this.q15Expectation, this.q15arrayN[0] - 1);//2.093
-	this.q15zb = getT(this.q15b, this.q15arrayN[0] - 1);
-	this.q15arrayN[1] = calN(this.q15s, this.q15d, this.q15z+this.q15zb);
-	this.q15z = getT(this.q15Expectation, this.q15arrayN[1] - 1);//2.08
-	this.q15zb = getT(this.q15b, this.q15arrayN[1] - 1);//2.08
-
-	for (let i = 0; this.q15arrayN[i] !== this.q15arrayN[i + 1]; i++) {
-		this.q15arrayN[i + 2] = calN(this.q15s, this.q15d, this.q15z+this.q15zb);
-		//window.alert(this.q13arrayN[i+1]);
-		this.q15z = getT(this.q15Expectation, this.q15arrayN[i + 2] - 1);
-		this.q15zb = getT(this.q15b, this.q15arrayN[i + 2] - 1);
-
-	}
+	//================15 比例与基准比较（6）====================
+	$("#Caluclate_ProportionToCriterion").click(function () {
+		this.q15s = parseFloat($("#q15s").val());
+		this.q15d = parseFloat($("#q15d").val());
+		this.q15Expectation = parseFloat($("#q15Expectation").val());
+		this.q15side = parseFloat($("#q15side").val());
+		this.q15b = parseFloat($("#q15b").val());
 
 
 
+		this.q15z = getT2(this.q15b, 10000, this.q15side);//传入一个大于1000的数计算t
 
-	$("#q15t").val(this.q15z);
-	$("#q15n").val(this.q15arrayN);
-});
+		this.q15zb = getT2(this.q15Expectation, 10000, 1);
+		this.q15n = Math.pow(this.q15z, 2) * this.q15s * this.q15s / (this.q15d * this.q15d);
 
+		this.q15arrayN = new Array();
+		this.q15arrayN[0] = calN(this.q15s, this.q15d, this.q15z + this.q15zb);//
+		this.q15z = getT2(this.q15Expectation, this.q15arrayN[0] - 1, this.q15side);//
+		this.q15zb = getT2(this.q15b, this.q15arrayN[0] - 1, 1);
+		this.q15arrayN[1] = calN(this.q15s, this.q15d, this.q15z + this.q15zb);
+		this.q15z = getT2(this.q15Expectation, this.q15arrayN[1] - 1, this.q15side);//
+		this.q15zb = getT2(this.q15b, this.q15arrayN[1] - 1, 1);//
+
+		for (let i = 0; this.q15arrayN[i] !== this.q15arrayN[i + 1]; i++) {
+			this.q15arrayN[i + 2] = calN(this.q15s, this.q15d, this.q15z + this.q15zb);
+			//window.alert(this.q13arrayN[i+1]);
+			this.q15z = getT2(this.q15Expectation, this.q15arrayN[i + 2] - 1, this.q15side);
+			this.q15zb = getT2(this.q15b, this.q15arrayN[i + 2] - 1, 1);
+
+		}
+
+
+
+
+		$("#q15ta").val(this.q15z);
+		$("#q15tb").val(this.q15zb);
+		$("#q15n").val(this.q15arrayN);
+	});
+
+	//=================28 配对比例（6）====================
+	$("#Caluclate_smallSimple").click(function () {
+		this.q16p = parseFloat($("#q16p").val());
+		this.q16d = parseFloat($("#q16d").val());
+		this.q16confi = parseFloat($("#q16confi").val());
+
+		
+
+		this.q16z = getT2(this.q16confi, 10000, 2);
+
+
+		this.q16n=Math.ceil(this.q16z*this.q16z*this.q16p*(1-this.q16p)/(this.q16d*this.q16d));
+
+		this.q16Padj=(this.q16n*this.q16p+this.q16z*this.q16z/2)/(this.q16n+this.q16z*this.q16z);
+
+		this.q16nFinal=Math.ceil(this.q16z*this.q16z*this.q16Padj*(1-this.q16Padj)/(this.q16d*this.q16d)-this.q16z*this.q16z);
+		$("#q16z").val(this.q16z);
+		$("#q16n").val(this.q16nFinal);
+	});
 	//未编辑代码
 	{
 
@@ -345,7 +366,7 @@ $("#Caluclate_ProportionToCriterion").click(function () {
 
 
 
-		
+
 
 		//================25 双均数（6）====================
 		$("#Caluclate_TwoMeans").click(function () {

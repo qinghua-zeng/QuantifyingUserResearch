@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <title>MDes Qinghua</title>
+    <script type="text/javascript" src="js/getT2.js"></script>
+
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/simple-statistics.js"></script>
     <link rel="stylesheet" href="css/main.css" />
@@ -45,9 +47,32 @@
                 <script type="text/javascript" src="js/select.js"></script>
             </div>
 
+            <!-- 16  -->
+            <div class="col-sm-6 center green">
+                <h2>16 小样本的二项样本量估计</h2>
+                <div>
+                    p
+                    <textarea cols="10" rows="1" name="textareaWald" id="q16p"></textarea>
+                </div>
+
+                <div>
+                    d
+                    <textarea cols="10" rows="1" name="textareaWald" id="q16d"></textarea>
+                </div>
+
+                <div>
+                    置信度
+                    <textarea cols="10" rows="1" name="textareaWald" id="q16confi"></textarea>%
+                </div>
+                <input type="button" value="caluclate" id="Caluclate_smallSimple">
+                <div>z:<input type="text" id="q16z" /></div>
+                <div>n:<input type="text" id="q16n" /></div>
+
+            </div>
+
             <!-- 15 比例与基准比较（6）-->
             <div class="col-sm-6 center pink">
-                <h2>15 检验力</h2>
+                <h2>15 检验力(6.3 比较数值)</h2>
                 <div>
                     s
                     <textarea cols="10" rows="1" name="textareaWald" id="q15s"></textarea>
@@ -61,15 +86,23 @@
                     期望信度
                     <textarea cols="10" rows="1" name="textareaWald" id="q15Expectation"></textarea>%
                 </div>
+
                 <div>
-                    检验力
+                    期望信度 单侧or双侧（输入1或2）
+                    <textarea cols="10" rows="1" name="textareaWald" id="q15side"></textarea>
+                </div>
+
+                <div>
+                    检验力 （单侧）
                     <textarea cols="10" rows="1" name="textareaWald" id="q15b"></textarea>%
                 </div>
 
                 <input type="button" value="caluclate" id="Caluclate_ProportionToCriterion">
 
 
-                <div>q15t:<input type="text" id="q15t" /></div>
+                <div>最后一个t(a)值:<input type="text" id="q15ta" /></div>
+
+                <div>最后一个t(b)值:<input type="text" id="q15tb" /></div>
 
                 <div>q15n:<input type="text" id="q15n" /></div>
 
@@ -77,7 +110,7 @@
 
             <!-- 14 大样本的二项样本量估计（6.5） -->
             <div class="col-sm-6 center blue">
-                <h2>14 大样本的二项样本量估计</h2>
+                <h2>14 大样本的二项样本量估计（6.5.1）</h2>
                 <div>
                     p
                     <textarea cols="10" rows="1" name="textareaWald" id="q14p"></textarea>
@@ -110,7 +143,7 @@
 
                 <div>
                     期望信度
-                    <textarea cols="10" rows="1" name="textareaWald" id="q13Expectation"></textarea>%
+                    <textarea cols="10" rows="1" name="textareaWald" id="q13Expectation"></textarea>% （双侧）
                 </div>
 
                 <input type="button" value="caluclate" id="Caluclate_MarginOfErrorMean">
