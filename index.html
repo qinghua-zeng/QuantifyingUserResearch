@@ -47,9 +47,34 @@
                 <script type="text/javascript" src="js/select.js"></script>
             </div>
 
-            <!-- 16  -->
+            <!-- 17 比例误差的幅度（6） -->
+            <div class="col-sm-6 center yellow">
+                <h2>17 与基准比较的样本量 6.5.3</h2>
+                <div>
+                    基准值
+                    <textarea cols="10" rows="1" name="textareaWald" id="q17benchmark"></textarea>
+                </div>
+                <div>
+                    精度
+                    <textarea cols="10" rows="1" name="textareaWald" id="q17d"></textarea>
+                </div>
+                <div>
+                    置信度
+                    <textarea cols="10" rows="1" name="textareaWald" id="q17confi"></textarea>%
+                </div>
+                <div>
+                    检验力
+                    <textarea cols="10" rows="1" name="textareaWald" id="q17b"></textarea>%
+                </div>
+
+                <input type="button" value="caluclate" id="Caluclate_MarginOfErrorProportion">
+                <div>n<input type="text" id="q17n" /></div>
+
+            </div>
+
+            <!-- 16 小样本的二项样本量估计 6.5.2 -->
             <div class="col-sm-6 center green">
-                <h2>16 小样本的二项样本量估计</h2>
+                <h2>16 小样本的二项样本量估计 6.5.2</h2>
                 <div>
                     p
                     <textarea cols="10" rows="1" name="textareaWald" id="q16p"></textarea>
@@ -577,18 +602,7 @@
 
 
 
-    <!-- 22 比例误差的幅度（6） -->
-    <div class="center dark">
-        <h2>22 MarginOfErrorProportion</h2>
-        <div>
-            成功人数
-            <textarea cols="10" rows="1" name="textareaWald" id="MarginOfErrorProportionV1"></textarea>
-        </div>
 
-        <input type="button" value="caluclate" id="Caluclate_MarginOfErrorProportion ">
-        <div>value2:<input type="text" id="MarginOfErrorProportionV2" /></div>
-
-    </div>
 
 
 

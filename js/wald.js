@@ -20,5 +20,17 @@ CalWald1=function (strSuccess, strTotal) {
 
 }
 
+function simpleWald(n,p,z){
+    this.Xadj=n*p+z*z/2;
+    this.Nadj=n+z*z;
+    this.Padj=this.Xadj/this.Nadj;
+    
+    
 
+    //this.Xadj=x+
+    this.Dadj=z*Math.sqrt(this.Padj*(1-this.Padj)/this.Nadj);
+    this.Min=this.Padj-  this.Dadj;
+    this.Max=this.Padj+  this.Dadj;
+
+}
 

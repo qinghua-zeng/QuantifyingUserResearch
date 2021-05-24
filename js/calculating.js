@@ -295,7 +295,7 @@ $(document).ready(function () {//传说中的ready
 		$("#q15n").val(this.q15arrayN);
 	});
 
-	//=================28 配对比例（6）====================
+	//=================16 小样本的二项样本量估计 6.5.2====================
 	$("#Caluclate_smallSimple").click(function () {
 		this.q16p = parseFloat($("#q16p").val());
 		this.q16d = parseFloat($("#q16d").val());
@@ -313,6 +313,33 @@ $(document).ready(function () {//传说中的ready
 		this.q16nFinal=Math.ceil(this.q16z*this.q16z*this.q16Padj*(1-this.q16Padj)/(this.q16d*this.q16d)-this.q16z*this.q16z);
 		$("#q16z").val(this.q16z);
 		$("#q16n").val(this.q16nFinal);
+	});
+
+	//================17 比例误差的幅度（6）====================
+	$("#Caluclate_MarginOfErrorProportion").click(function () {
+		this.q17benchmark = parseFloat($("#q17benchmark").val());
+		this.q17d = parseFloat($("#q17d").val());
+		this.q17confi = parseFloat($("#q17confi").val());
+		this.q17b = parseFloat($("#q17b").val());
+
+		this.q17p=this.q17benchmark+this.q17d;
+
+		this.q17z= getT2(this.q17confi,10000,1)+getT2(this.q17b,9999,1);
+
+		this.q17n=Math.ceil(this.q17z*this.q17z*this.q17p*(1-this.q17p)/(this.q17d*this.q17d));
+
+		this.wald=new Array();
+		this.wald[0]=new simpleWald(this.q17n,this.q17p,this.q17z);
+		//this.Dadj=this.wald.Dadj;
+
+		this.finalN;
+
+		/* for(let i=0;this.wald[i].Min>this.q17b;i++){
+			//this.tempN=new simpleWald(this.q17n,this.q17p,this.q17z);
+			//this.wald[i+1]=new simpleWald()}
+			this.wald[i+1]=new simpleWald(this.q17n+i+1,this.q17p,this.q17z);
+		} */
+		$("#q17n").val(this.wald[0].Min);
 	});
 	//未编辑代码
 	{
@@ -359,10 +386,7 @@ $(document).ready(function () {//传说中的ready
 
 
 
-		//================22 比例误差的幅度（6）====================
-		$("#Caluclate_MarginOfErrorProportion").click(function () {
-
-		});
+		
 
 
 
