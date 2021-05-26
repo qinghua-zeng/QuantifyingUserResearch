@@ -1,4 +1,6 @@
 
+
+//校正wald
 CalWald1=function (strSuccess, strTotal) {
 	this.successNum=parseFloat(strSuccess);
     this.totalNum=parseFloat(strTotal);
@@ -20,7 +22,9 @@ CalWald1=function (strSuccess, strTotal) {
 
 }
 
+//面临废弃
 function simpleWald(n,p,z){
+    
     this.Xadj=n*p+z*z/2;
     this.Nadj=n+z*z;
     this.Padj=this.Xadj/this.Nadj;
@@ -34,3 +38,39 @@ function simpleWald(n,p,z){
 
 }
 
+//新wald
+function simpleWald2(x,n,z){
+    this.N=n;
+    this.Xadj=x+z*z/2;
+    this.p=x/n;
+    this.Nadj=n+z*z;
+    this.Padj=this.Xadj/this.Nadj;
+    
+    
+
+    //this.Xadj=x+
+    this.Dadj=z*Math.sqrt(this.Padj*(1-this.Padj)/this.Nadj);
+    this.Min=this.Padj-  this.Dadj;
+    this.Max=this.Padj+  this.Dadj;
+
+}
+
+
+function stdWald(p,z,d){
+    this.N=z*z*p/(d*d)-z*z;
+
+
+}
+
+Padj=function(p,n,z){
+this.Padj;
+
+return this.Padj;
+
+};
+
+WaldAdjN=function(p,d,z){
+    this.n=z*z*p/(d*d)-1.5*z*z;
+    return this.n;
+
+}

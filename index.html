@@ -47,6 +47,93 @@
                 <script type="text/javascript" src="js/select.js"></script>
             </div>
 
+            <!-- 20 相关性（10） -->
+            <div class="col-sm-6 center green">
+                <h2>20 Correlation 10.2.1</h2>
+                <div>
+                    数据1
+                    <textarea cols="20" rows="3" name="textareaWald" id="q20data1"></textarea>
+                </div>
+
+                <div>
+                    数据2
+                    <textarea cols="20" rows="3" name="textareaWald" id="q20data2"></textarea>
+                </div>
+
+                <input type="button" value="caluclate" id="Caluclate_Correlation">
+                <div>
+                    q20stat1
+                    <textarea cols="20" rows="3" name="textareaWald" id="q20stat1"></textarea>
+                </div>
+
+                <div>
+                    q20stat2
+                    <textarea cols="20" rows="3" name="textareaWald" id="q20stat2"></textarea>
+                </div>
+
+                <div>
+                    q20statXY
+                    <textarea cols="20" rows="3" name="textareaWald" id="q20statXY"></textarea>
+                </div>
+                <div>n:<input type="text" id="q20xxx" /></div>
+            </div>
+
+            <!-- 19 配对比例（6） -->
+            <div class="col-sm-6 center pink">
+                <h2>19 配对比例 6.7</h2>
+                <div>
+                    q19Pa
+                    <textarea cols="10" rows="1" name="textareaWald" id="q19Pa"></textarea>
+                </div>
+
+                <div>
+                    q19Pb
+                    <textarea cols="10" rows="1" name="textareaWald" id="q19Pb"></textarea>
+                </div>
+
+                <div>
+                    置信度
+                    <textarea cols="10" rows="1" name="textareaWald" id="q19confi"></textarea>%
+                </div>
+
+                <div>
+                    检验力
+                    <textarea cols="10" rows="1" name="textareaWald" id="q19b"></textarea>%
+                </div>
+
+                <input type="button" value="caluclate" id="Caluclate_PairedProportions">
+                <div>n:<input type="text" id="q19n" /></div>
+
+            </div>
+
+            <!-- 18 双比例（6）-->
+            <div class="col-sm-6 center blue">
+                <h2>18 卡方检验的样本量预估 6.6</h2>
+                <div>
+                    P 小
+                    <textarea cols="10" rows="1" name="textareaWald" id="q18p1"></textarea>
+                </div>
+
+                <div>
+                    P 大
+                    <textarea cols="10" rows="1" name="textareaWald" id="q18p2"></textarea>
+                </div>
+
+                <div>
+                    置信度
+                    <textarea cols="10" rows="1" name="textareaWald" id="q18confi"></textarea>%
+                </div>
+
+                <div>
+                    检验了
+                    <textarea cols="10" rows="1" name="textareaWald" id="q18b"></textarea>%
+                </div>
+
+                <input type="button" value="caluclate" id="Caluclate_TwoProportions">
+                <div>n<input type="text" id="q18n" /></div>
+
+            </div>
+
             <!-- 17 比例误差的幅度（6） -->
             <div class="col-sm-6 center yellow">
                 <h2>17 与基准比较的样本量 6.5.3</h2>
@@ -561,18 +648,7 @@
 
     </div>
 
-    <!-- 18 相关性（10） -->
-    <div class="center dark">
-        <h2>18 Correlation</h2>
-        <div>
-            成功人数
-            <textarea cols="10" rows="1" name="textareaWald" id="CorrelationV1"></textarea>
-        </div>
 
-        <input type="button" value="caluclate" id="Caluclate_Correlation">
-        <div>value2:<input type="text" id="CorrelationV2" /></div>
-
-    </div>
 
     <!-- 19 回归分析（10） -->
     <div class="center dark">
@@ -634,31 +710,9 @@
 
     </div>
 
-    <!-- 27 双比例（6）-->
-    <div class="center dark">
-        <h2>27 TwoProportions</h2>
-        <div>
-            成功人数
-            <textarea cols="10" rows="1" name="textareaWald" id="TwoProportionsV1"></textarea>
-        </div>
 
-        <input type="button" value="caluclate" id="Caluclate_TwoProportions">
-        <div>value2:<input type="text" id="TwoProportionsV2" /></div>
 
-    </div>
 
-    <!-- 28 配对比例（6） -->
-    <div class="center dark">
-        <h2>28 PairedProportions</h2>
-        <div>
-            成功人数
-            <textarea cols="10" rows="1" name="textareaWald" id="PairedProportionsV1"></textarea>
-        </div>
-
-        <input type="button" value="caluclate" id="Caluclate_PairedProportions">
-        <div>value2:<input type="text" id="PairedProportionsV2" /></div>
-
-    </div>
 
     <!-- 29 线性回归的样本量 -->
     <div class="center dark">

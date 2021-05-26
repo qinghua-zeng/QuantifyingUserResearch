@@ -1,4 +1,4 @@
-$(document).ready(function () {//传说中的ready
++-$(document).ready(function () {//传说中的ready
 	$("form div input:text").addClass("input");//找到form里面div包含的input标签类型为text的元素 jQuery强悍
 
 	//02 t置信区间
@@ -301,16 +301,16 @@ $(document).ready(function () {//传说中的ready
 		this.q16d = parseFloat($("#q16d").val());
 		this.q16confi = parseFloat($("#q16confi").val());
 
-		
+
 
 		this.q16z = getT2(this.q16confi, 10000, 2);
 
 
-		this.q16n=Math.ceil(this.q16z*this.q16z*this.q16p*(1-this.q16p)/(this.q16d*this.q16d));
+		this.q16n = Math.ceil(this.q16z * this.q16z * this.q16p * (1 - this.q16p) / (this.q16d * this.q16d));
 
-		this.q16Padj=(this.q16n*this.q16p+this.q16z*this.q16z/2)/(this.q16n+this.q16z*this.q16z);
+		this.q16Padj = (this.q16n * this.q16p + this.q16z * this.q16z / 2) / (this.q16n + this.q16z * this.q16z);
 
-		this.q16nFinal=Math.ceil(this.q16z*this.q16z*this.q16Padj*(1-this.q16Padj)/(this.q16d*this.q16d)-this.q16z*this.q16z);
+		this.q16nFinal = Math.ceil(this.q16z * this.q16z * this.q16Padj * (1 - this.q16Padj) / (this.q16d * this.q16d) - this.q16z * this.q16z);
 		$("#q16z").val(this.q16z);
 		$("#q16n").val(this.q16nFinal);
 	});
@@ -322,25 +322,155 @@ $(document).ready(function () {//传说中的ready
 		this.q17confi = parseFloat($("#q17confi").val());
 		this.q17b = parseFloat($("#q17b").val());
 
-		this.q17p=this.q17benchmark+this.q17d;
+		this.q17p = this.q17benchmark + this.q17d;
 
-		this.q17z= getT2(this.q17confi,10000,1)+getT2(this.q17b,9999,1);
+		this.q17z = getT2(this.q17confi, 10000, 1) + getT2(this.q17b, 9999, 1);
 
-		this.q17n=Math.ceil(this.q17z*this.q17z*this.q17p*(1-this.q17p)/(this.q17d*this.q17d));
+		this.q17n = Math.ceil(this.q17z * this.q17z * this.q17p * (1 - this.q17p) / (this.q17d * this.q17d));
 
-		this.wald=new Array();
-		this.wald[0]=new simpleWald(this.q17n,this.q17p,this.q17z);
+		this.wald = new Array();
+		//this.wald[0]=new simpleWald(this.q17n,this.q17p,this.q17z);
+		this.q17x = this.q17n * this.q17p;
+		this.wald[0] = new simpleWald2(this.q17x, this.q17n, this.q17z);
 		//this.Dadj=this.wald.Dadj;
 
-		this.finalN;
 
-		/* for(let i=0;this.wald[i].Min>this.q17b;i++){
+
+		for (let i = 0; this.wald[i].Min < this.q17benchmark; i++) {
 			//this.tempN=new simpleWald(this.q17n,this.q17p,this.q17z);
 			//this.wald[i+1]=new simpleWald()}
-			this.wald[i+1]=new simpleWald(this.q17n+i+1,this.q17p,this.q17z);
-		} */
-		$("#q17n").val(this.wald[0].Min);
+
+			this.wald[i + 1] = new simpleWald2(Math.round((this.q17n + 1 + i) * this.q17p), this.q17n + 1 + i, this.q17z);
+		}
+
+		this.finalN = this.wald[this.wald.length - 1].N;
+		$("#q17n").val(this.finalN);
 	});
+
+	//================18 双比例（6）====================
+	$("#Caluclate_TwoProportions").click(function () {
+		this.q18p1 = parseFloat($("#q18p1").val());
+		this.q18p2 = parseFloat($("#q18p2").val());
+		this.q18p = (this.q18p1 + this.q18p2) / 2;
+		this.q18confi = parseFloat($("#q18confi").val());
+		this.q18b = parseFloat($("#q18b").val());
+		this.q18d = this.q18p2 - this.q18p1;
+
+		this.q18z = getT2(this.q18confi, 9999, 2) + getT2(this.q18b, 9999, 1);
+		this.q18n = (2 * this.q18z * this.q18z * this.q18p * (1 - this.q18p)) / (this.q18d * this.q18d) + 0.5;
+
+		$("#q18n").val(this.q18n);
+	});
+
+	//=================19 配对比例（6）====================
+	$("#Caluclate_PairedProportions").click(function () {
+		this.q19Pa = parseFloat($("#q19Pa").val());
+		this.q19Pb = parseFloat($("#q19Pb").val());
+		this.q19confi = parseFloat($("#q19confi").val());
+		this.q19b = parseFloat($("#q19b").val());
+		this.q19d=this.q19Pa-this.q19Pb;
+
+		this.q19p=this.q19Pa+this.q19Pb;
+
+		this.q19z = getT2(this.q19confi, 9999, 2) + getT2(this.q19b, 9999, 1);
+
+		this.wald=new stdWald(this.q19p,this.q19z,this.q19d);
+
+		this.q19n = Math.ceil(this.wald.N);//取整
+
+		this.PadjA=(this.q19Pa*this.q19n+this.q19z*this.q19z/8)/(this.q19n+this.q19z*this.q19z/2);
+
+		this.PadjB=(this.q19Pb*this.q19n+this.q19z*this.q19z/8)/(this.q19n+this.q19z*this.q19z/2);
+
+		this.Dajd=this.PadjA-this.PadjB;
+
+		this.finalN=Math.ceil(WaldAdjN(this.PadjA+this.PadjB,this.Dajd,this.q19z)/2)*2;
+
+		$("#q19n").val(this.finalN);
+	});
+
+	//===============20 相关性（10）===================
+	$("#Caluclate_Correlation").click(function () {
+		//this.q20data1 = $("#q20data1").val().split(",");
+		this.q20data1 = $("#q20data1").val();
+		this.q20data1=this.q20data1.split(",");
+
+		this.q20data2 = $("#q20data2").val();
+		this.q20data2=this.q20data2.split(",");
+		//this.q20data2 = $("#q20data2").val().split(",");
+
+
+		//this.test="2,3,1";
+		//this.tt=this.test.split(",");
+		
+		this.q20d1=new Array();//用来存储转换成数字的数组
+		this.q20d2=new Array();//用来存储转换成数字的数组
+		//for循环将字符串转为浮点
+		for (let i = 0; i < this.q20data1.length; i++) {
+			this.q20d1[i] = parseFloat(this.q20data1[i]);
+		}
+
+		for (let i = 0; i < this.q20data2.length; i++) {
+			this.q20d2[i] = parseFloat(this.q20data2[i]);
+		}
+
+		/* for (let i = 0; i < this.q20data2.length; i++) {
+			//this.q20data2[i] = parseFloat(this.q20data2[i]);
+		} */
+		//window.alert(this.q20d1[0]);
+
+		this.q20data1_mean=sumAll2(this.q20d1)/this.q20d1.length;
+		this.q20data2_mean=sumAll2(this.q20d2)/this.q20d2.length;
+		//this.Stat1 = new numsToStat(this.q20d1);
+		//this.Stat2 = new numsToStat(this.q20data2);
+
+		this.devs1=new Array();
+		for(let i=0;i<this.q20d1.length;i++){
+			this.devs1[i]=this.q20d1[i]-this.q20data1_mean;
+
+		}
+
+		this.devs1s=new Array();
+		for (let i=0;i<this.devs1.length;i++){
+			this.devs1s[i]=this.devs1[i]*this.devs1[i];
+		}
+		this.devs2=new Array();
+		for(let i=0;i<this.q20d2.length;i++){
+			this.devs2[i]=this.q20d2[i]-this.q20data2_mean,2;
+
+		}
+
+		this.devs2s=new Array();
+		for (let i=0;i<this.devs2.length;i++){
+			this.devs2s[i]=this.devs2[i]*this.devs2[i];
+		}
+
+		this.devXY=new Array();
+		for (let i=0;i<this.devs2.length;i++){
+			this.devXY[i]=this.devs1[i]*this.devs2[i];
+		}
+
+		//this.Stat1 = new numsToStat(this.devs1);
+
+		this.q20sum1=0;
+		for(let i=0;i<this.devs1.length;i++){
+			this.q20sum1+=this.devs1s[i];
+		}
+
+		this.q20sum2=sumAll2(this.devs2s);
+		this.q20sumXY=sumAll2(this.devXY);
+
+		window.alert(this.q20sum2+"|"+this.q20sumXY);
+		this.r=this.q20sumXY/Math.sqrt(this.q20sum1*this.q20sum2);
+		//this.q20r=0;
+		$("#q20stat1").val(this.devs1s);
+		$("#q20stat2").val(this.devs2s);
+		$("#q20statXY").val(this.devXY);
+		$("#q20xxx").val(this.r);
+
+	});
+
+
 	//未编辑代码
 	{
 
@@ -369,10 +499,7 @@ $(document).ready(function () {//传说中的ready
 
 		});
 
-		//===============18 相关性（10）===================
-		$("#Caluclate_Correlation").click(function () {
-
-		});
+		
 
 		//================19 回归分析（10）====================
 		$("#Caluclate_RegressionAnalysis").click(function () {
@@ -386,7 +513,7 @@ $(document).ready(function () {//传说中的ready
 
 
 
-		
+
 
 
 
@@ -402,15 +529,9 @@ $(document).ready(function () {//传说中的ready
 
 		});
 
-		//================27 双比例（6）====================
-		$("#Caluclate_TwoProportions").click(function () {
 
-		});
 
-		//=================28 配对比例（6）====================
-		$("#Caluclate_PairedProportions").click(function () {
 
-		});
 
 		//================29 线性回归的样本量===================
 		$("#Caluclate_SampleSizeForLinearRegression").click(function () {
