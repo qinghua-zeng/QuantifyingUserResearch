@@ -38,7 +38,7 @@ $("#parent *").click(function (e) {
 		//结论
 		else if (situation == 4) {
 			$("#a0").text("3组或更多组");
-			$("#decision").text("方差分析或多重样本t检验");
+			$("#decision").text("Q10 方差分析或多重样本t检验");
 			$("#a1").text("yes");
 			$("#a2").text("no");
 			
@@ -55,7 +55,7 @@ $("#parent *").click(function (e) {
 		//结论
 		else if (situation == 7) {
 			$("#a0").text("大于等于3组");
-			$("#decision").text("方差分析或多重配对t检验");
+			$("#decision").text("Q09 方差分析或多重配对t检验");
 			$("#a1").text("yes");
 			$("#a2").text("no");
 			situation = 7;
@@ -65,7 +65,7 @@ $("#parent *").click(function (e) {
 			$("#a0").text("有任务时间");
 			$("#a1").text("yes");
 			$("#a2").text("no");
-			$("#decision").text("单样本t检验（log）");
+			$("#decision").text("Q08 单样本t检验（log）");
 			situation = 8;
 		}
 
@@ -110,7 +110,7 @@ $("#parent *").click(function (e) {
 		//结论
 		else if (situation == 14) {
 			$("#a0").text("是的，与基准进行比较检验");
-			$("#decision").text("单样本二项式或单样本z检验");
+			$("#decision").text("Q05单样本二项式或 Q06单样本z检验");
 			$("#a1").text("yes");
 			$("#a2").text("no");
 			situation = 14;
@@ -161,7 +161,7 @@ $("#parent *").click(function (e) {
 		//结论
 		else if (situation == 4) {
 			$("#a0").text("小于3组");
-			$("#decision").text("双样本t检验");
+			$("#decision").text("Q10 双样本t检验");
 			$("#a1").text("yes");
 			$("#a2").text("no");
 		}
@@ -175,7 +175,7 @@ $("#parent *").click(function (e) {
 		//结论
 		else if (situation == 7) {
 			$("#a0").text("小于3组");
-			$("#decision").text("配对t检验");
+			$("#decision").text("Q09 配对t检验");
 			$("#a1").text("yes");
 			$("#a2").text("no");
 			situation = 9;
@@ -186,13 +186,13 @@ $("#parent *").click(function (e) {
 			
 			$("#a1").text("yes");
 			$("#a2").text("no");
-			$("#decision").text("单样本t检验");
+			$("#decision").text("Q07 单样本t检验");
 			situation = 8;
 		}
 
 		else if (situation == 9) {
 			$("#a0").text("没有任务时间");
-			$("#decision").text("t置信区间");
+			$("#decision").text("Q02 t置信区间");
 			$("#a1").text("yes");
 			$("#a2").text("no");
 			situation = 9;
@@ -208,7 +208,7 @@ $("#parent *").click(function (e) {
 
 		else if (situation == 11) {
 			$("#a0").text("与基准进行比较检验");
-			$("#decision").text("Phi相关性");
+			$("#decision").text("Q20 Phi相关性");
 			$("#a1").text("yes");
 			$("#a2").text("no");
 			situation = 11;
@@ -226,7 +226,7 @@ $("#parent *").click(function (e) {
 
 		else if (situation == 13) {
 			$("#a0").text("小于3组");
-			$("#decision").text("N-1双比例检验和Fisher精度检验");
+			$("#decision").text("Q11 N-1双比例检验和Fisher精度检验");
 			$("#a1").text("yes");
 			$("#a2").text("no");
 			situation = 13;
@@ -237,13 +237,13 @@ $("#parent *").click(function (e) {
 			
 			$("#a1").text("yes");
 			$("#a2").text("no");
-			$("#decision").text("Wald校正置信区间");
+			$("#decision").text("Q01 Wald校正置信区间");
 			situation = 14;
 		}
 
 		else if (situation == 16) {
 			$("#a0").text("3组或更多组");
-			$("#decision").text("McNemar精确检验");
+			$("#decision").text("Q12 McNemar精确检验");
 			$("#a1").text("yes");
 			$("#a2").text("no");
 			

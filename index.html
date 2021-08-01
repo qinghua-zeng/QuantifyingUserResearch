@@ -4,48 +4,49 @@
 <head>
     <meta charset="utf-8">
     <title>MDes Qinghua</title>
-    <script type="text/javascript" src="js/getT2.js"></script>
-
     <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/simple-statistics.js"></script>
+    <script type="text/javascript" src="js/loadAjax.js"></script>
+
     <link rel="stylesheet" href="css/main.css" />
-    <script type="text/javascript" src="js/simpleCal.js"></script>
-    <script type="text/javascript" src="js/calculating.js"></script>
-    <script type="text/javascript" src="js/numsToStat.js"></script>
-    <script type="text/javascript" src="js/split.js"></script>
-    <script type="text/javascript" src="js/statistic.js"></script>
-
-    <script type="text/javascript" src="js/wald.js"></script>
-    <script type="text/javascript" src="js/Caluclate_OneSampleBinomial.js"></script>
-    <script type="text/javascript" src="js/OneSampleZTest.js"></script>
-    <script type="text/javascript" src="js/tConfidenceInterval.js"></script>
-
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script> -->
 
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
-<!-- <body onload="getString('周晓白|52|dd|44|fff')"> -->
 
 <body>
+
+
+
     <div class="container">
         <div class="row">
             <!-- //decision maker -->
             <div class="col-sm-12 dark">
-                <p class="center">Decision Maker</p>
+                <p class="center">1.1 Decision Maker</p>
                 <div id="parent" class="center">
                     <p id="a0" class="center">哪种类型数据</p>
                     <button id="a1" href="javascript:void(0);">连续型</button>
                     <button id="a2" href="javascript:void(0);">离散型</button>
-
+                    <p>Situation:</span><span id="situation"></p>
                     <p class="center">需要使用的是：</p>
                     <p id="decision"></p>
 
-                    <span>Situation:</span><span id="situation"></span>
+
                 </div>
                 <script type="text/javascript" src="js/select.js"></script>
             </div>
+
+
+
+
+            <!-- //Ajax 方法载入-->
+            <div id="div1" class="col-sm-12 blue">
+                <h2>使用 jQuery AJAX 修改文本内容</h2>
+
+                <button>获取外部内容吧</button>
+            </div>
+
+
+
 
             <!-- 20 相关性（10） -->
             <div class="col-sm-6 center green">

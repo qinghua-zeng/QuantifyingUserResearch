@@ -1,4 +1,10 @@
 +-$(document).ready(function () {//传说中的ready
+
+	//使用ajax方法
+
+
+
+
 	$("form div input:text").addClass("input");//找到form里面div包含的input标签类型为text的元素 jQuery强悍
 
 	//02 t置信区间
