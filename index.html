@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>QX | A Quantitative Analysis Tool</title>
+    <title>QX | Statistical Quantitative Analysis Tool</title>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/loadAjax.js"></script>
 
@@ -17,12 +17,34 @@
 
     <div class="container">
         <div class="row">
+            <div class="col-sm-12">
+                <h1>QX</h1>
+                <p>Statistical Quantitative Analysis Tool</p>
+            </div>
 
-            <h1>QX</h1>
-            
+            <!-- 4 个功能 -->
+            <div id="func" class="col-sm-4 yellow">
+                <div id="F01" href="javascript:void(0);" class="pink">
+                    <h3>sample size calculator</h3>
+                    <p>How many user should you recruit?</p>
+                    <p>How many participants for a survey?</p>
+                </div>
+                <div id="F02" href="javascript:void(0);" class="blue">
+                    <h3>A/B comparison</h3>
+                    <p></p>
+                </div>
+                <div id="F03" href="javascript:void(0);" class="green">
+                    <h3>Benchmark evaluation</h3>
+                    <p></p>
+                </div>
+                <div id="F04" href="javascript:void(0);" class="dark">
+                    <h3>Overall estimation</h3>
+                    <p></p>
+                </div>
+            </div>
 
             <!-- //decision maker -->
-            <div class="col-sm-12 dark">
+            <div class="col-sm-4 dark">
                 <p class="center">1.1 Decision Maker</p>
                 <div id="parent" class="center">
                     <p id="a0" class="center">哪种类型数据</p>
@@ -38,7 +60,8 @@
             </div>
 
 
-            <div>
+            <!-- 方法直接选择器 -->
+            <div class="col-sm-4 yellow">
                 <button id="q01" href="javascript:void(0);">q01</button>
                 <button id="q02" href="javascript:void(0);">q02</button>
                 <button id="q03" href="javascript:void(0);">q03</button>
@@ -62,11 +85,12 @@
 
             </div>
 
+
+
             <!-- //Ajax 方法载入-->
             <div id="div1" class="col-sm-12 blue">
                 <h2>使用 jQuery AJAX 修改文本内容</h2>
 
-                <button>获取外部内容吧</button>
             </div>
 
 
