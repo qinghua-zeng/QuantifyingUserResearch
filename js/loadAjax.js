@@ -1,4 +1,15 @@
 $(document).ready(function () {
+  $("#F01").click(function () {
+    $("#func").load("decision1.html");
+  });
+
+  $("#F02").click(function () {
+    $("#func").load("decision2.html");
+  });
+
+  $("#F03").click(function () {
+    $("#func").load("decision3.html");
+  });
 
   $("#F04").click(function () {
     $("#func").load("decision4.html");

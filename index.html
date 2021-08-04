@@ -17,34 +17,69 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <div id="nav" class="col-sm-12">
                 <h1>QX</h1>
                 <p>Statistical Quantitative Analysis Tool</p>
+                <p class="right">About QX</p>
             </div>
 
-            <!-- 4 个功能 -->
-            <div id="func" class="col-sm-4 yellow">
-                <div id="F01" href="javascript:void(0);" class="pink">
-                    <h3>sample size calculator</h3>
-                    <p>How many user should you recruit?</p>
-                    <p>How many participants for a survey?</p>
+            <div id="main_content" class="">
+                <div id="direct_selector">
+                    <!-- 方法直接选择器 -->
+                    <h2>Direct Selector</h2>
+                    <!-- <div class="col-sm-12 dark"> -->
+                    <button class="col-sm-3 yellow" id="q01" href="javascript:void(0);">q01</button>
+                    <button class="col-sm-3 pink" id="q02" href="javascript:void(0);">q02</button>
+                    <button class="col-sm-3 blue" id="q03" href="javascript:void(0);">q03</button>
+                    <button class="col-sm-3 orange" id="q04" href="javascript:void(0);">q04</button>
+                    <button class="col-sm-3 yellow" id="q05" href="javascript:void(0);">q05</button>
+                    <button class="col-sm-3 pink" id="q06" href="javascript:void(0);">q06</button>
+                    <button class="col-sm-3 blue" id="q07" href="javascript:void(0);">q07</button>
+                    <button class="col-sm-3 orange" id="q08" href="javascript:void(0);">q08</button>
+                    <button class="col-sm-3 yellow" id="q09" href="javascript:void(0);">q09</button>
+                    <button class="col-sm-3 pink" id="q10" href="javascript:void(0);">q10</button>
+                    <button class="col-sm-3 blue" id="q11" href="javascript:void(0);">q11</button>
+                    <button class="col-sm-3 orange" id="q12" href="javascript:void(0);">q12</button>
+                    <button class="col-sm-3 yellow" id="q13" href="javascript:void(0);">q13</button>
+                    <button class="col-sm-3 pink" id="q14" href="javascript:void(0);">q14</button>
+                    <button class="col-sm-3 blue" id="q15" href="javascript:void(0);">q15</button>
+                    <button class="col-sm-3 orange" id="q16" href="javascript:void(0);">q16</button>
+                    <button class="col-sm-3 yellow" id="q17" href="javascript:void(0);">q17</button>
+                    <button class="col-sm-3 pink" id="q18" href="javascript:void(0);">q18</button>
+                    <button class="col-sm-3 blue" id="q19" href="javascript:void(0);">q19</button>
+                    <button class="col-sm-3 orange" id="q20" href="javascript:void(0);">q20</button>
                 </div>
-                <div id="F02" href="javascript:void(0);" class="blue">
-                    <h3>A/B comparison</h3>
-                    <p></p>
-                </div>
-                <div id="F03" href="javascript:void(0);" class="green">
-                    <h3>Benchmark evaluation</h3>
-                    <p></p>
-                </div>
-                <div id="F04" href="javascript:void(0);" class="dark">
-                    <h3>Overall estimation</h3>
-                    <p></p>
-                </div>
-            </div>
+                <!-- </div> -->
 
-            <!-- //decision maker -->
-            <div class="col-sm-4 dark">
+
+                <!-- 4 个功能 -->
+                <div id="func" class="col-sm-12 white">
+                    <h2>Select your research purpose</h2>
+
+
+                    <button id="F02" href="javascript:void(0);" class="func col-sm-12 yellow">
+                        <h3>A/B comparison</h3>
+                        <p></p>
+                    </button>
+                    <button id="F03" href="javascript:void(0);" class="func col-sm-12 orange">
+                        <h3>Benchmark evaluation</h3>
+                        <p></p>
+                    </button>
+                    <button id="F04" href="javascript:void(0);" class="func col-sm-12 pink">
+                        <h3>Overall estimation</h3>
+                        <p></p>
+
+                    </button>
+
+                    <button id="F01" href="javascript:void(0);" class="func col-sm-12 yellow">
+                        <h3>Sample Size Calculator</h3>
+                        <p>How many user should you recruit?</p>
+                        <p>How many participants for a survey?</p>
+                    </button>
+                </div>
+
+                <!-- //decision maker -->
+                <!--<div class="col-sm-4 dark">
                 <p class="center">1.1 Decision Maker</p>
                 <div id="parent" class="center">
                     <p id="a0" class="center">哪种类型数据</p>
@@ -53,55 +88,30 @@
                     <p>Situation:</span><span id="situation"></p>
                     <p class="center">需要使用的是：</p>
                     <p id="decision"></p>
-
-
                 </div>
                 <script type="text/javascript" src="js/select.js"></script>
             </div>
+ -->
 
 
-            <!-- 方法直接选择器 -->
-            <div class="col-sm-4 yellow">
-                <button id="q01" href="javascript:void(0);">q01</button>
-                <button id="q02" href="javascript:void(0);">q02</button>
-                <button id="q03" href="javascript:void(0);">q03</button>
-                <button id="q04" href="javascript:void(0);">q04</button>
-                <button id="q05" href="javascript:void(0);">q05</button>
-                <button id="q06" href="javascript:void(0);">q06</button>
-                <button id="q07" href="javascript:void(0);">q07</button>
-                <button id="q08" href="javascript:void(0);">q08</button>
-                <button id="q09" href="javascript:void(0);">q09</button>
-                <button id="q10" href="javascript:void(0);">q10</button>
-                <button id="q11" href="javascript:void(0);">q11</button>
-                <button id="q12" href="javascript:void(0);">q12</button>
-                <button id="q13" href="javascript:void(0);">q13</button>
-                <button id="q14" href="javascript:void(0);">q14</button>
-                <button id="q15" href="javascript:void(0);">q15</button>
-                <button id="q16" href="javascript:void(0);">q16</button>
-                <button id="q17" href="javascript:void(0);">q17</button>
-                <button id="q18" href="javascript:void(0);">q18</button>
-                <button id="q19" href="javascript:void(0);">q19</button>
-                <button id="q20" href="javascript:void(0);">q20</button>
+                <!-- //Ajax 方法载入-->
+                <div id="div1" class="col-sm-12 blue">
+                    <h2>使用 jQuery AJAX 修改文本内容</h2>
 
-            </div>
-
-
-
-            <!-- //Ajax 方法载入-->
-            <div id="div1" class="col-sm-12 blue">
-                <h2>使用 jQuery AJAX 修改文本内容</h2>
-
-            </div>
+                </div>
 
 
 
 
 
 
-        </div>
-    </div>
+            </div><!-- main_content close -->
 
 
+        </div><!-- row close -->
+
+
+    </div><!-- container close -->
 
 </body>
 
