@@ -17,77 +17,83 @@
 
 <body>
 
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- <a class="navbar-brand" href="#">QX</a> -->
+        <div class="container text_white">
+            <h4>QX</h4>
+        </div>
+
+
+
+    </nav>
+
     <div class="container">
-        <div class="row">
-            <div id="nav" class="col-sm-12">
-                <h1>QX</h1>
-                <p>Statistical Quantitative Analysis Tool</p>
-                <p class="right">About QX</p>
+        <!-- <div class="row"> -->
+
+
+        <div id="main_content" class="col-sm-12">
+            <div id="direct_selector" class="">
+                <!-- 方法直接选择器 -->
+                <h2>Direct Selector (Do not touch this)</h2>
+
+                <!-- <div class="col-sm-12 dark"> -->
+                <div class="row">
+                    <button class="yellow col" id="q01" href="javascript:void(0);">q01</button>
+                    <button class="pink col" id="q02" href="javascript:void(0);">q02</button>
+                    <button class="col blue" id="q03" href="javascript:void(0);">q03</button>
+                    <button class="col orange" id="q04" href="javascript:void(0);">q04</button>
+                    <button class="col yellow" id="q05" href="javascript:void(0);">q05</button>
+                    <button class="col pink" id="q06" href="javascript:void(0);">q06</button>
+                    <button class="col blue" id="q07" href="javascript:void(0);">q07</button>
+                    <button class="col orange" id="q08" href="javascript:void(0);">q08</button>
+                    <button class="col yellow" id="q09" href="javascript:void(0);">q09</button>
+                    <button class="col pink" id="q10" href="javascript:void(0);">q10</button>
+                </div>
+                <div class="row">
+                    <button class="col blue" id="q11" href="javascript:void(0);">q11</button>
+                    <button class="col orange" id="q12" href="javascript:void(0);">q12</button>
+                    <button class="col yellow" id="q13" href="javascript:void(0);">q13</button>
+                    <button class="col pink" id="q14" href="javascript:void(0);">q14</button>
+                    <button class="col blue" id="q15" href="javascript:void(0);">q15</button>
+                    <button class="col orange" id="q16" href="javascript:void(0);">q16</button>
+                    <button class="col yellow" id="q17" href="javascript:void(0);">q17</button>
+                    <button class="col pink" id="q18" href="javascript:void(0);">q18</button>
+                    <button class="col blue" id="q19" href="javascript:void(0);">q19</button>
+                    <button class="col orange" id="q20" href="javascript:void(0);">q20</button>
+                </div>
+            </div>
+            <!-- </div> -->
+
+
+            <!-- 4 个功能 -->
+            <div id="func" class="white">
+                <h2>Select your research purpose</h2>
+
+                <div class="row">
+                    <button id="F02" href="javascript:void(0);" class="func col yellow">
+                        <h3>A/B comparison</h3>
+                        <p></p>
+                    </button>
+                    <button id="F03" href="javascript:void(0);" class="func col orange">
+                        <h3>Benchmark evaluation</h3>
+                        <p></p>
+                    </button>
+                    <button id="F04" href="javascript:void(0);" class="func col pink">
+                        <h3>Overall estimation</h3>
+                        <p></p>
+
+                    </button>
+
+                    <button id="F01" href="javascript:void(0);" class="func col yellow">
+                        <h3>Sample Size Calculator</h3>
+                        <p>Temporarily unavailable :(</p>
+
+                    </button>
+                </div>
             </div>
 
-            <div id="main_content" class="col-sm-12">
-                <div id="direct_selector" class="">
-                    <!-- 方法直接选择器 -->
-                    <h2>Direct Selector (Do not touch this)</h2>
-
-                    <!-- <div class="col-sm-12 dark"> -->
-                    <div class="row">
-                        <button class="yellow col" id="q01" href="javascript:void(0);">q01</button>
-                        <button class="pink col" id="q02" href="javascript:void(0);">q02</button>
-                        <button class="col blue" id="q03" href="javascript:void(0);">q03</button>
-                        <button class="col orange" id="q04" href="javascript:void(0);">q04</button>
-                        <button class="col yellow" id="q05" href="javascript:void(0);">q05</button>
-                        <button class="col pink" id="q06" href="javascript:void(0);">q06</button>
-                        <button class="col blue" id="q07" href="javascript:void(0);">q07</button>
-                        <button class="col orange" id="q08" href="javascript:void(0);">q08</button>
-                        <button class="col yellow" id="q09" href="javascript:void(0);">q09</button>
-                        <button class="col pink" id="q10" href="javascript:void(0);">q10</button>
-                    </div>
-                    <div class="row">
-                        <button class="col blue" id="q11" href="javascript:void(0);">q11</button>
-                        <button class="col orange" id="q12" href="javascript:void(0);">q12</button>
-                        <button class="col yellow" id="q13" href="javascript:void(0);">q13</button>
-                        <button class="col pink" id="q14" href="javascript:void(0);">q14</button>
-                        <button class="col blue" id="q15" href="javascript:void(0);">q15</button>
-                        <button class="col orange" id="q16" href="javascript:void(0);">q16</button>
-                        <button class="col yellow" id="q17" href="javascript:void(0);">q17</button>
-                        <button class="col pink" id="q18" href="javascript:void(0);">q18</button>
-                        <button class="col blue" id="q19" href="javascript:void(0);">q19</button>
-                        <button class="col orange" id="q20" href="javascript:void(0);">q20</button>
-                    </div>
-                </div>
-                <!-- </div> -->
-
-
-                <!-- 4 个功能 -->
-                <div id="func" class="white">
-                    <h2>Select your research purpose</h2>
-
-                    <div class="row">
-                        <button id="F02" href="javascript:void(0);" class="func col yellow">
-                            <h3>A/B comparison</h3>
-                            <p></p>
-                        </button>
-                        <button id="F03" href="javascript:void(0);" class="func col orange">
-                            <h3>Benchmark evaluation</h3>
-                            <p></p>
-                        </button>
-                        <button id="F04" href="javascript:void(0);" class="func col pink">
-                            <h3>Overall estimation</h3>
-                            <p></p>
-
-                        </button>
-
-                        <button id="F01" href="javascript:void(0);" class="func col yellow">
-                            <h3>Sample Size Calculator</h3>
-                            <p>Temporarily unavailable :(</p>
-                           
-                        </button>
-                    </div>
-                </div>
-
-                <!-- //decision maker -->
-                <!--<div class="col-sm-4 dark">
+            <!-- //decision maker -->
+            <!--<div class="col-sm-4 dark">
                 <p class="center">1.1 Decision Maker</p>
                 <div id="parent" class="center">
                     <p id="a0" class="center">哪种类型数据</p>
@@ -102,21 +108,21 @@
  -->
 
 
-                <!-- //Ajax 方法载入-->
-                <div id="div1" class="col-sm-12 blue">
-                    <h2></h2>
+            <!-- //Ajax 方法载入-->
+            <div id="div1" class="col-sm-12 blue">
+                <h2></h2>
 
-                </div>
-
-
+            </div>
 
 
 
 
-            </div><!-- main_content close -->
 
 
-        </div><!-- row close -->
+        </div><!-- main_content close -->
+
+
+        <!-- </div> -->
 
 
     </div><!-- container close -->
