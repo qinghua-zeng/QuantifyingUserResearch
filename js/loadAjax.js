@@ -1,4 +1,31 @@
 $(document).ready(function () {
+  //========方法直接选择器=================================
+  $("#text-feedback").hide();
+  let showFeedback=false;
+
+ 
+  $("#feedback").click(function () {
+    //$("#func").load("decision1.html");
+    //window.alert("111");
+    if (showFeedback==false){
+      $("#text-feedback").show();
+      showFeedback=true;
+    }else{
+      $("#text-feedback").hide();
+      showFeedback=false;
+    }
+
+    /* if (showFeedback==true){
+      $("#text-feedback").hide();
+      showFeedback=false;
+    } */
+    //$("#text-feedback").show();
+    //let showFeedback=0;
+
+  });
+
+
+  //========方法直接选择器=================================
   $("#F01").click(function () {
     $("#func").load("decision1.html");
   });
@@ -99,3 +126,5 @@ $(document).ready(function () {
     $("#div1").load("statistics/20.html");
   });
 });
+
+

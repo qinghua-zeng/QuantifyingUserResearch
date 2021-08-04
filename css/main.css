@@ -152,3 +152,10 @@ input[type=text]:focus, textarea:focus {
     transform: rotate(90deg);
 
 }
+
+
+#text-feedback {
+    position: fixed;
+    right: 3%;
+    bottom: 60px;
+}
