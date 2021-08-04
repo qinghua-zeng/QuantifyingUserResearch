@@ -156,6 +156,6 @@ input[type=text]:focus, textarea:focus {
 
 #text-feedback {
     position: fixed;
-    right: 3%;
+    right: 5%;
     bottom: 60px;
 }
