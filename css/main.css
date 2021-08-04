@@ -75,7 +75,7 @@ input[type=text]:focus, textarea:focus {
 }
 
 .dark {
-    background-color: rgb(221, 221, 221);
+    background-color: rgb(241, 241, 241);
 }
 
 .yellow {
@@ -115,7 +115,7 @@ input[type=text]:focus, textarea:focus {
 }
 
 #nav {
-    background-color: rgb(104, 157, 255);
+    /* background-color: rgb(104, 157, 255); */
 }
 
 /* #F01 {
