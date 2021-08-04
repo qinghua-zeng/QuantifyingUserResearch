@@ -12,6 +12,8 @@
     
 }
 
+
+
 button {
     width: 80px;
     height: 30px;
@@ -124,23 +126,19 @@ input[type=text]:focus, textarea:focus {
     /* background-color: rgb(104, 157, 255); */
 }
 
-/* #F01 {
-    background-color: rgb(128, 150, 89);
 
+
+#navbar {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    /* position: absolute;*/
+    position: fixed;
+    z-index: 9999; 
+    display: inline-block;
+    align-content: center;
 }
 
-#F02 {
-    background-color: rgb(36, 131, 72);
-
+#main_content {
+    margin-top: 60px;
 }
-
-#F03 {
-    background-color: rgb(0, 146, 134);
-
-}
-
-#F04 {
-    background-color: rgb(160, 71, 123);
-
-} */
-
