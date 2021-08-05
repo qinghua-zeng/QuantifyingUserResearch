@@ -110,16 +110,21 @@ input[type=text]:focus, textarea:focus {
     background-color: rgb(255, 255, 255);
 }
 
-.func {
+#func {
     /* position: relative; */
     /* width: 200px; */
-    height: 150px;
+    height: 250px;
     /* float:left; */
-    
+    margin-top: 20px;
 	
-    /* background-color: rgb(104, 157, 255); */
+    /* background-color: rgb(255, 255, 255); */
     /* display: inline-block; */
     
+}
+
+.func {
+    height: 200px; 
+
 }
 
 #nav {
@@ -133,10 +138,22 @@ input[type=text]:focus, textarea:focus {
     position: fixed;
     width: 100%;
     /* position: absolute;*/
-    position: fixed;
+    
     z-index: 9999; 
     display: inline-block;
     align-content: center;
+}
+
+#navbar_bottom {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    /* position: absolute;*/
+    
+    z-index: 9999; 
+    display: inline-block;
+    align-content: center;
+    color: #000;
 }
 
 #main_content {
