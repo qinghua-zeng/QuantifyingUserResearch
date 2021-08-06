@@ -65,7 +65,7 @@
 				//$("#a1").text("不同");
 				//$("#a2").text("相同");
 				$("#decision").text("Q11");
-				//$("#main_content").load("statistics/10.html");
+				$("#main_content").load("statistics/11.html");
 				//situation = 6;
 			}
 
@@ -141,7 +141,7 @@
 				//$("#a1").text("不同");
 				//$("#a2").text("相同");
 				$("#decision").text("Q12");
-				//$("#main_content").load("statistics/10.html");
+				$("#main_content").load("statistics/12.html");
 				//situation = 6;
 			}
 
