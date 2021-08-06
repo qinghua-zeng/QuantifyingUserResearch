@@ -1,0 +1,45 @@
+<script>
+    //========主功能选择器=================================
+    $("#F01").click(function () {
+        $("#main_content").load("decision1.html");
+    });
+
+    $("#F02").click(function () {
+        $("#main_content").load("decision2.html");
+    });
+
+    $("#F03").click(function () {
+        $("#main_content").load("decision3.html");
+    });
+
+    $("#F04").click(function () {
+        $("#main_content").load("decision4.html");
+    });
+</script>
+
+<!-- 4 个功能 -->
+<div id="func" class="center">
+    <h2>Select your research purpose</h2>
+
+    <div class="row">
+        <button id="F02" href="javascript:void(0);" class="func col yellow">
+            <h3>A/B comparison</h3>
+            <p></p>
+        </button>
+        <button id="F03" href="javascript:void(0);" class="func col orange">
+            <h3>Benchmark evaluation</h3>
+            <p></p>
+        </button>
+        <button id="F04" href="javascript:void(0);" class="func col pink">
+            <h3>Overall estimation</h3>
+            <p></p>
+
+        </button>
+
+        <button id="F01" href="javascript:void(0);" class="func col yellow">
+            <h3>Sample Size Calculator</h3>
+            <p>Temporarily unavailable :(</p>
+
+        </button>
+    </div>
+</div><!-- 4个功能 close -->

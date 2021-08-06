@@ -18,7 +18,7 @@
 				$("#a1").text("小于三组");
 				$("#a2").text("大于三组");
 				//$("#decision").text("Q10");
-				//$("#div1").load("statistics/03.html");
+				//$("#main_content").load("statistics/03.html");
 				situation = 2;
 			}
 
@@ -27,7 +27,7 @@
 				$("#a1").text("不同");
 				$("#a2").text("相同");
 				//$("#decision").text("Q03 t(log）或 Q04 中位数置信区间");
-				//$("#div1").load("statistics/03.html");
+				//$("#main_content").load("statistics/03.html");
 				situation = 3;
 			}
 
@@ -38,7 +38,7 @@
 				//$("#a1").text("小于三组");
 				//$("#a2").text("大于三组");
 				$("#decision").text("Q10");
-				$("#div1").load("statistics/10.html");
+				$("#main_content").load("statistics/10.html");
 				//situation = 3;
 			}
 
@@ -47,7 +47,7 @@
 				//$("#a1").text("小于三组");
 				//$("#a2").text("大于三组");
 				$("#decision").text("多重Q10");
-				$("#div1").load("statistics/10.html");
+				$("#main_content").load("statistics/10.html");
 				//situation = 3;
 			}
 
@@ -56,7 +56,7 @@
 				$("#a1").text("不同");
 				$("#a2").text("相同");
 				//$("#decision").text("多重Q10");
-				//$("#div1").load("statistics/10.html");
+				//$("#main_content").load("statistics/10.html");
 				situation = 6;
 			}
 
@@ -65,7 +65,7 @@
 				//$("#a1").text("不同");
 				//$("#a2").text("相同");
 				$("#decision").text("Q11");
-				//$("#div1").load("statistics/10.html");
+				//$("#main_content").load("statistics/10.html");
 				//situation = 6;
 			}
 
@@ -74,7 +74,7 @@
 				//$("#a1").text("不同");
 				//$("#a2").text("相同");
 				$("#decision").text("Q20");
-				$("#div1").load("statistics/20.html");
+				$("#main_content").load("statistics/20.html");
 				//situation = 6;
 			}
 
@@ -87,7 +87,7 @@
 				$("#a1").text("连续");
 				$("#a2").text("离散");
 				//$("#decision").text("Q01 Wald");
-				//$("#div1").load("statistics/01.html");
+				//$("#main_content").load("statistics/01.html");
 				situation = 7;
 			}
 
@@ -97,7 +97,7 @@
 				$("#a2").text("大于三组");
 				situation = 5;
 				//$("#decision").text("Q02 T");
-				//$("#div1").load("statistics/02.html");
+				//$("#main_content").load("statistics/02.html");
 			}
 
 			else if (situation == 2) {
@@ -105,7 +105,7 @@
 				$("#a1").text("不同");
 				$("#a2").text("相同");
 				//$("#decision").text("Q09");
-				//$("#div1").load("statistics/09.html");
+				//$("#main_content").load("statistics/09.html");
 				situation = 4;
 			}
 
@@ -114,7 +114,7 @@
 				//$("#a1").text("小于三组");
 				//$("#a2").text("大于三组");
 				$("#decision").text("Q09");
-				$("#div1").load("statistics/09.html");
+				$("#main_content").load("statistics/09.html");
 				//situation = 3;
 			}
 
@@ -123,7 +123,7 @@
 				//$("#a1").text("小于三组");
 				//$("#a2").text("大于三组");
 				$("#decision").text("多重Q09");
-				$("#div1").load("statistics/09.html");
+				$("#main_content").load("statistics/09.html");
 				//situation = 3;
 			}
 
@@ -132,7 +132,7 @@
 				//$("#a1").text("小于三组");
 				//$("#a2").text("大于三组");
 				$("#decision").text("待定");
-				//$("#div1").load("statistics/09.html");
+				//$("#main_content").load("statistics/09.html");
 				//situation = 3;
 			}
 
@@ -141,7 +141,7 @@
 				//$("#a1").text("不同");
 				//$("#a2").text("相同");
 				$("#decision").text("Q12");
-				//$("#div1").load("statistics/10.html");
+				//$("#main_content").load("statistics/10.html");
 				//situation = 6;
 			}
 
@@ -150,7 +150,7 @@
 				//$("#a1").text("不同");
 				//$("#a2").text("相同");
 				$("#decision").text("Phi 相关性");
-				//$("#div1").load("statistics/10.html");
+				//$("#main_content").load("statistics/10.html");
 				//situation = 6;
 			}
 			

@@ -18,7 +18,7 @@ $(document).ready(function () {
 				//$("#a1").text("yes");
 				//$("#a2").text("no");
 				$("#decision").text("Q08");
-				$("#div1").load("statistics/08.html");
+				$("#main_content").load("statistics/08.html");
 				//situation = 2;
 			}
 
@@ -27,7 +27,7 @@ $(document).ready(function () {
 				//$("#a1").text("yes");
 				//$("#a2").text("no");
 				$("#decision").text("Q05");
-				$("#div1").load("statistics/05.html");
+				$("#main_content").load("statistics/05.html");
 				//situation = 2;
 			}
 
@@ -42,7 +42,7 @@ $(document).ready(function () {
 				$("#a1").text("小样本");
 				$("#a2").text("大样本");
 				//$("#decision").text("Q01 Wald");
-				//$("#div1").load("statistics/01.html");
+				//$("#main_content").load("statistics/01.html");
 				situation = 2;
 			}
 
@@ -52,7 +52,7 @@ $(document).ready(function () {
 				//$("#a2").text("no");
 				//situation = 5;
 				$("#decision").text("Q07");
-				$("#div1").load("statistics/07.html");
+				$("#main_content").load("statistics/07.html");
 			}
 
 			else if (situation == 2) {
@@ -61,7 +61,7 @@ $(document).ready(function () {
 				//$("#a2").text("no");
 				//situation = 5;
 				$("#decision").text("Q06");
-				$("#div1").load("statistics/06.html");
+				$("#main_content").load("statistics/06.html");
 			}
 
 			

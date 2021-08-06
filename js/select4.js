@@ -18,7 +18,7 @@ $(document).ready(function () {
 				//$("#a1").text("yes");
 				//$("#a2").text("no");
 				$("#decision").text("Q03 t(log）或 Q04 中位数置信区间");
-				$("#div1").load("statistics/03.html");
+				$("#main_content").load("statistics/03.html");
 				//situation = 2;
 			}
 
@@ -33,7 +33,7 @@ $(document).ready(function () {
 				//$("#a1").text("比较数据");
 				//$("#a2").text("相关数据");
 				$("#decision").text("Q01 Wald");
-				$("#div1").load("statistics/01.html");
+				$("#main_content").load("statistics/01.html");
 				//situation = 10;
 			}
 
@@ -43,7 +43,7 @@ $(document).ready(function () {
 				//$("#a2").text("no");
 				//situation = 5;
 				$("#decision").text("Q02 T");
-				$("#div1").load("statistics/02.html");
+				$("#main_content").load("statistics/02.html");
 			}
 
 			
