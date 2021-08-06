@@ -27,7 +27,7 @@ $(document).ready(function () {
   });
 
   $("#about").click(function () {
-    $("#main_content").load("main_functions.html");
+    $("#main_content").load("about.html");
     //window.alert("1");
   });
 
