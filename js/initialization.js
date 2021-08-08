@@ -17,18 +17,14 @@ window.onload = function () {
         paper.setup('myCanvas');//01 
         //02 创建我的鼠标事件,myMouseEvent 必须是全局变量
         myMouseEvent = new Tool();//02 
-        //printObject(myMouseEvent);
-        //03 创建画布显示区域
-        //globalCanvasX1=0;
-        //globalCanvasX2=400;
-        globalWidth = 800;
-        globalHeight=500;
+       
+        globalWidth = 200;
+        globalHeight=150;
         //globalHeight=600;
-        //fx(0, 0, glabalWidth, glabalWidth);//03 
-        //fx(0, 0, globalWidth, globalHeight);//03
+        
         //04 创建显示文字定义模块===================================
         var myCircle = new Path.Circle(new Point(100, 270), 50);
-        var rect = new Rectangle(0, 0, 300, 100);
+        var rect = new Path.Rectangle(0, 0, globalWidth, globalHeight);
         myCircle.fillColor = 'black';
         rect.fillColor = 'black';
 
@@ -40,18 +36,9 @@ window.onload = function () {
     myMouseEvent.onMouseDrag = mouseDrag;
 
 
-    //button3.update();
-
-
-
 
     function mouseDrag(event) {
-        //fc.onMouseDrag(event);
-        //fcc.onMouseDrag(event);
-        focb.mouseDrag(event);
-        fccb.mouseDrag(event);
-        //bzButton.mouseDrag(event);
-        dvdCurve.onMouseDrag(event);
+        
 
 
     }

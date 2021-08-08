@@ -7,6 +7,7 @@ $(document).ready(function () {
   $("#text-feedback").hide();
   let showFeedback = false;
 
+  $("#myCanvas").hide();
 
   $("#feedback").click(function () {
     //$("#func").load("decision1.html");
@@ -18,6 +19,8 @@ $(document).ready(function () {
       $("#text-feedback").hide();
       showFeedback = false;
     }
+
+    $("#myCanvas").show();
   });
 
    //顶部导航栏
