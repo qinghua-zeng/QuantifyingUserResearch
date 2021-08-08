@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-  $("#main_content").load("main_functions.html");
+  $("#main_content").load("main_html/main_functions.html");
 
 
   //========方法直接选择器=================================
@@ -22,18 +22,18 @@ $(document).ready(function () {
 
    //顶部导航栏
   $("#logo").click(function () {
-    $("#main_content").load("main_functions.html");
+    $("#main_content").load("main_html/main_functions.html");
     //window.alert("1");
   });
 
   $("#about").click(function () {
-    $("#main_content").load("about.html");
+    $("#main_content").load("main_html/about.html");
     //window.alert("1");
   });
 
   //底部导航栏
   $("#home").click(function () {
-    $("#main_content").load("main_functions.html");
+    $("#main_content").load("main_html/main_functions.html");
     //window.alert("1");
   });
 
@@ -41,7 +41,7 @@ $(document).ready(function () {
   
 
   $("#bottom2").click(function () {
-    $("#main_content").load("direct_selector.html");
+    $("#main_content").load("main_html/direct_selector.html");
     //window.alert("1");
   });
 
