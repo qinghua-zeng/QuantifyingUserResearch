@@ -7,7 +7,7 @@
 
 	//01 wald====================
 	$("#Caluclate_AdjustedWaldConfidenceInterval").click(function () {
-		CalWald1($("#successNum").val(), $("#totalNum").val(),$("#q01z").val());
+		CalWald1($("#successNum").val(), $("#totalNum").val(), $("#q01z").val());
 	});
 
 	//02 t置信区间====================
@@ -16,18 +16,18 @@
 		for (i = 0; i < this.nums.length; i++) {
 			this.nums[i] = parseFloat(this.nums[i]);
 		}
-		this.Stat = new numsToStat(this.nums);
+		this.Stat = new numsToStat2(this.nums, $("#Q02confi").val(), 2);
 		//this.Stat.writeDataT();
 
 		$("#sum").val(this.Stat.sum);
-        $("#average").val(this.Stat.mean);
-        $("#median").val(median(this.Stat.array));
-        $("#Deviations").val(this.Stat.deviations);
-        $("#standardDeviation").val(this.Stat.stddev);
-        $("#standardError").val(this.Stat.stdError);
-        $("#MarginOfError").val(this.Stat.MarginOfError);
-        $("#tMin").val(this.Stat.Tmin);
-        $("#tMax").val(this.Stat.Tmax);
+		$("#average").val(this.Stat.mean);
+		$("#median").val(median(this.Stat.array));
+		$("#Deviations").val(this.Stat.deviations);
+		$("#standardDeviation").val(this.Stat.stddev);
+		$("#standardError").val(this.Stat.stdError);
+		$("#MarginOfError").val(this.Stat.MarginOfError);
+		$("#tMin").val(this.Stat.Tmin);
+		$("#tMax").val(this.Stat.Tmax);
 	});
 
 
@@ -39,20 +39,22 @@
 		for (i = 0; i < this.nums.length; i++) {
 			this.nums[i] = parseFloat(this.nums[i]);
 		}
-		this.Stat = new numsToStat(this.nums);
-		//this.Stat.writeDataTlog();
+		this.Stat = new numsToStat2(this.nums,$("#q03confi").val(),2);
+
+		//window.alert("1");
 
 		$("#Tlogs").val(this.Stat.numLogs);
-        $("#TlogMean").val(this.Stat.logMean);
-        $("#TlogSampleSize").val(this.Stat.sampleSize);
-        $("#numLogStdDev").val(this.Stat.numLogStdDev);
-        $("#stdErrorLogStdDev").val(this.Stat.stdErrorLogStdDev);
-        $("#logMarginError").val(this.Stat.logMarginError);
-        $("#logConfiMin").val(this.Stat.logConfiMin);
-        $("#logConfiMax").val(this.Stat.logConfiMax);
-        $("#ConfiMin").val(this.Stat.ConfiMin);
-        $("#ConfiMax").val(this.Stat.ConfiMax);
+		$("#TlogMean").val(this.Stat.logMean);
+		$("#TlogSampleSize").val(this.Stat.sampleSize);
+		$("#numLogStdDev").val(this.Stat.numLogStdDev);
+		$("#stdErrorLogStdDev").val(this.Stat.stdErrorLogStdDev);
+		$("#logMarginError").val(this.Stat.logMarginError);
+		$("#logConfiMin").val(this.Stat.logConfiMin);
+		$("#logConfiMax").val(this.Stat.logConfiMax);
+		$("#ConfiMin").val(this.Stat.ConfiMin);
+		$("#ConfiMax").val(this.Stat.ConfiMax);
 	});
+
 
 	//04 中位数置信区间====================
 	$("#Caluclate_ConfidenceIntervalAroundMedian").click(function () {
@@ -61,15 +63,18 @@
 		for (i = 0; i < this.nums.length; i++) {
 			this.nums[i] = parseFloat(this.nums[i]);
 		}
-		this.Stat = new numsToStat(this.nums);
+		this.Stat = new numsToStat2(this.nums, $("#q04confi").val(), 2);
 		//this.Stat.writeDataMedian();
 
 		$("#ConfidenceIntervalAroundMedian2").val(this.Stat.median);
-        $("#np").val(this.Stat.q04np);
-        $("#q04z95").val(this.Stat.q04z95);
-        $("#q04stdError").val(this.Stat.q04stdError);
-        $("#q04Min").val(this.Stat.q04Min);
-        $("#q04Max").val(this.Stat.q04Max);
+		$("#np").val(this.Stat.q04np);
+		$("#q04z95").val(this.Stat.q04z95);
+		$("#q04stdError").val(this.Stat.q04stdError);
+		$("#q04Min").val(this.Stat.q04Min);
+		$("#q04Max").val(this.Stat.q04Max);
+
+		$("#q04data1").val(this.Stat.rightOrderArray[Math.ceil(this.Stat.q04Min)-1]);
+		$("#q04data2").val(this.Stat.rightOrderArray[Math.ceil(this.Stat.q04Max)-1]);
 
 
 	});
@@ -115,8 +120,8 @@
 		//this.Stat.writeDataQ08();
 
 		$("#ePowLogMean").val(this.Stat.ePowLogMean);
-        $("#stdErrorLogStdDev").val(this.Stat.stdErrorLogStdDev);
-        $("#q08logMean").val(this.Stat.logMean);
+		$("#stdErrorLogStdDev").val(this.Stat.stdErrorLogStdDev);
+		$("#q08logMean").val(this.Stat.logMean);
 
 		this.q08t = (this.q08lnU - this.Stat.logMean) / this.Stat.stdErrorLogStdDev;
 		//window.alert(this.q08lnU-this.Stat.logMean);
