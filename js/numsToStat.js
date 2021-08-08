@@ -1,3 +1,4 @@
+//面临废弃
 numsToStat = function (nums) {
 
     //变量声明
@@ -9,7 +10,7 @@ numsToStat = function (nums) {
         this.mean = this.sum / this.array.length;
         this.sampleSize = this.array.length;
         this.t95Value = t95[this.sampleSize - 2];
-        //window.alert(this.t95Value);
+        window.alert(this.t95Value);
         this.deviations = calDev(this.array);
         
         this.stddev = calStdDev(this.array);
@@ -43,92 +44,12 @@ numsToStat = function (nums) {
         this.q04Min = this.q04np - this.q04z95 * this.q04stdError;
         this.q04Max = this.q04np + this.q04z95 * this.q04stdError;
     }
-    //02 t
-    this.writeDataT = function () {
-        $("#sum").val(this.sum);
-        $("#average").val(this.mean);
-        $("#median").val(median(this.array));
-        $("#Deviations").val(this.deviations);
-        $("#standardDeviation").val(this.stddev);
-        $("#standardError").val(this.stdError);
-        $("#MarginOfError").val(this.MarginOfError);
-        $("#tMin").val(this.Tmin);
-        $("#tMax").val(this.Tmax);
-    }
-    //03 t log
-    this.writeDataTlog = function () {
-        $("#Tlogs").val(this.numLogs);
-        $("#TlogMean").val(this.logMean);
-        $("#TlogSampleSize").val(this.sampleSize);
-        $("#numLogStdDev").val(this.numLogStdDev);
-        $("#stdErrorLogStdDev").val(this.stdErrorLogStdDev);
-        $("#logMarginError").val(this.logMarginError);
-        $("#logConfiMin").val(this.logConfiMin);
-        $("#logConfiMax").val(this.logConfiMax);
-        $("#ConfiMin").val(this.ConfiMin);
-        $("#ConfiMax").val(this.ConfiMax);
-    }
-    //04 中位数
-    this.writeDataMedian = function () {
-        $("#ConfidenceIntervalAroundMedian2").val(this.median);
-        $("#np").val(this.q04np);
-        $("#q04z95").val(this.q04z95);
-        $("#q04stdError").val(this.q04stdError);
-        $("#q04Min").val(this.q04Min);
-        $("#q04Max").val(this.q04Max);
 
-
-
-    }
-    //08
-    this.writeDataQ08 = function () {
-        $("#ePowLogMean").val(this.ePowLogMean);
-        $("#stdErrorLogStdDev").val(this.stdErrorLogStdDev);
-        $("#q08logMean").val(this.logMean);
-
-    }
-    //
-    this.writeDataMedian000 = function () {
-        $("#ConfidenceIntervalAroundMedian2").val(this.sum);
-
-    }
-    //
-    this.writeDataMedian000 = function () {
-        $("#ConfidenceIntervalAroundMedian2").val(this.sum);
-
-    }
-    //
-    this.writeDataMedian000 = function () {
-        $("#ConfidenceIntervalAroundMedian2").val(this.sum);
-
-    }
-    //
-    this.writeDataMedian000 = function () {
-        $("#ConfidenceIntervalAroundMedian2").val(this.sum);
-
-    }
-    //
-    this.writeDataMedian000 = function () {
-        $("#ConfidenceIntervalAroundMedian2").val(this.sum);
-
-    }
-    //
-    this.writeDataMedian000 = function () {
-        $("#ConfidenceIntervalAroundMedian2").val(this.sum);
-
-    }
-    //
-    this.writeDataMedian000 = function () {
-        $("#ConfidenceIntervalAroundMedian2").val(this.sum);
-
-    }
-    //
-    this.writeDataMedian000 = function () {
-        $("#ConfidenceIntervalAroundMedian2").val(this.sum);
-
-    }
 
 
 
 
 }
+
+//新，增加置信区间变量获取
+

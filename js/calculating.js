@@ -3,26 +3,36 @@
 	//使用ajax方法
 
 
-
-
 	$("form div input:text").addClass("input");//找到form里面div包含的input标签类型为text的元素 jQuery强悍
 
-	//02 t置信区间
+	//01 wald====================
+	$("#Caluclate_AdjustedWaldConfidenceInterval").click(function () {
+		CalWald1($("#successNum").val(), $("#totalNum").val(),$("#q01z").val());
+	});
+
+	//02 t置信区间====================
 	$("#Caluclate_tConfidence").click(function () {
 		this.nums = $("#textarea").val().split(",");
 		for (i = 0; i < this.nums.length; i++) {
 			this.nums[i] = parseFloat(this.nums[i]);
 		}
 		this.Stat = new numsToStat(this.nums);
-		this.Stat.writeDataT();
+		//this.Stat.writeDataT();
+
+		$("#sum").val(this.Stat.sum);
+        $("#average").val(this.Stat.mean);
+        $("#median").val(median(this.Stat.array));
+        $("#Deviations").val(this.Stat.deviations);
+        $("#standardDeviation").val(this.Stat.stddev);
+        $("#standardError").val(this.Stat.stdError);
+        $("#MarginOfError").val(this.Stat.MarginOfError);
+        $("#tMin").val(this.Stat.Tmin);
+        $("#tMax").val(this.Stat.Tmax);
 	});
 
-	//01 wald
-	$("#Caluclate_AdjustedWaldConfidenceInterval").click(function () {
-		CalWald1($("#successNum").val(), $("#totalNum").val());
-	});
 
-	//03 t log
+
+	//03 t log====================
 	$("#Caluclate_tLogConfidenceInterval").click(function () {
 		this.nums = $("#textareaTlog").val().split(",");
 		//for循环将字符串转为浮点
@@ -30,10 +40,21 @@
 			this.nums[i] = parseFloat(this.nums[i]);
 		}
 		this.Stat = new numsToStat(this.nums);
-		this.Stat.writeDataTlog();
+		//this.Stat.writeDataTlog();
+
+		$("#Tlogs").val(this.Stat.numLogs);
+        $("#TlogMean").val(this.Stat.logMean);
+        $("#TlogSampleSize").val(this.Stat.sampleSize);
+        $("#numLogStdDev").val(this.Stat.numLogStdDev);
+        $("#stdErrorLogStdDev").val(this.Stat.stdErrorLogStdDev);
+        $("#logMarginError").val(this.Stat.logMarginError);
+        $("#logConfiMin").val(this.Stat.logConfiMin);
+        $("#logConfiMax").val(this.Stat.logConfiMax);
+        $("#ConfiMin").val(this.Stat.ConfiMin);
+        $("#ConfiMax").val(this.Stat.ConfiMax);
 	});
 
-	//04 中位数置信区间
+	//04 中位数置信区间====================
 	$("#Caluclate_ConfidenceIntervalAroundMedian").click(function () {
 		this.nums = $("#ConfidenceIntervalAroundMedian1").val().split(",");
 		//for循环将字符串转为浮点
@@ -41,7 +62,14 @@
 			this.nums[i] = parseFloat(this.nums[i]);
 		}
 		this.Stat = new numsToStat(this.nums);
-		this.Stat.writeDataMedian();
+		//this.Stat.writeDataMedian();
+
+		$("#ConfidenceIntervalAroundMedian2").val(this.Stat.median);
+        $("#np").val(this.Stat.q04np);
+        $("#q04z95").val(this.Stat.q04z95);
+        $("#q04stdError").val(this.Stat.q04stdError);
+        $("#q04Min").val(this.Stat.q04Min);
+        $("#q04Max").val(this.Stat.q04Max);
 
 
 	});
@@ -84,7 +112,12 @@
 		}
 		this.q08lnU = Math.log(this.q08Benchmark);
 		this.Stat = new numsToStat(this.nums);
-		this.Stat.writeDataQ08();
+		//this.Stat.writeDataQ08();
+
+		$("#ePowLogMean").val(this.Stat.ePowLogMean);
+        $("#stdErrorLogStdDev").val(this.Stat.stdErrorLogStdDev);
+        $("#q08logMean").val(this.Stat.logMean);
+
 		this.q08t = (this.q08lnU - this.Stat.logMean) / this.Stat.stdErrorLogStdDev;
 		//window.alert(this.q08lnU-this.Stat.logMean);
 		$("#q08lnU").val(this.q08lnU);
@@ -374,23 +407,23 @@
 		this.q19Pb = parseFloat($("#q19Pb").val());
 		this.q19confi = parseFloat($("#q19confi").val());
 		this.q19b = parseFloat($("#q19b").val());
-		this.q19d=this.q19Pa-this.q19Pb;
+		this.q19d = this.q19Pa - this.q19Pb;
 
-		this.q19p=this.q19Pa+this.q19Pb;
+		this.q19p = this.q19Pa + this.q19Pb;
 
 		this.q19z = getT2(this.q19confi, 9999, 2) + getT2(this.q19b, 9999, 1);
 
-		this.wald=new stdWald(this.q19p,this.q19z,this.q19d);
+		this.wald = new stdWald(this.q19p, this.q19z, this.q19d);
 
 		this.q19n = Math.ceil(this.wald.N);//取整
 
-		this.PadjA=(this.q19Pa*this.q19n+this.q19z*this.q19z/8)/(this.q19n+this.q19z*this.q19z/2);
+		this.PadjA = (this.q19Pa * this.q19n + this.q19z * this.q19z / 8) / (this.q19n + this.q19z * this.q19z / 2);
 
-		this.PadjB=(this.q19Pb*this.q19n+this.q19z*this.q19z/8)/(this.q19n+this.q19z*this.q19z/2);
+		this.PadjB = (this.q19Pb * this.q19n + this.q19z * this.q19z / 8) / (this.q19n + this.q19z * this.q19z / 2);
 
-		this.Dajd=this.PadjA-this.PadjB;
+		this.Dajd = this.PadjA - this.PadjB;
 
-		this.finalN=Math.ceil(WaldAdjN(this.PadjA+this.PadjB,this.Dajd,this.q19z)/2)*2;
+		this.finalN = Math.ceil(WaldAdjN(this.PadjA + this.PadjB, this.Dajd, this.q19z) / 2) * 2;
 
 		$("#q19n").val(this.finalN);
 	});
@@ -399,18 +432,18 @@
 	$("#Caluclate_Correlation").click(function () {
 		//this.q20data1 = $("#q20data1").val().split(",");
 		this.q20data1 = $("#q20data1").val();
-		this.q20data1=this.q20data1.split(",");
+		this.q20data1 = this.q20data1.split(",");
 
 		this.q20data2 = $("#q20data2").val();
-		this.q20data2=this.q20data2.split(",");
+		this.q20data2 = this.q20data2.split(",");
 		//this.q20data2 = $("#q20data2").val().split(",");
 
 
 		//this.test="2,3,1";
 		//this.tt=this.test.split(",");
-		
-		this.q20d1=new Array();//用来存储转换成数字的数组
-		this.q20d2=new Array();//用来存储转换成数字的数组
+
+		this.q20d1 = new Array();//用来存储转换成数字的数组
+		this.q20d2 = new Array();//用来存储转换成数字的数组
 		//for循环将字符串转为浮点
 		for (let i = 0; i < this.q20data1.length; i++) {
 			this.q20d1[i] = parseFloat(this.q20data1[i]);
@@ -425,49 +458,49 @@
 		} */
 		//window.alert(this.q20d1[0]);
 
-		this.q20data1_mean=sumAll2(this.q20d1)/this.q20d1.length;
-		this.q20data2_mean=sumAll2(this.q20d2)/this.q20d2.length;
+		this.q20data1_mean = sumAll2(this.q20d1) / this.q20d1.length;
+		this.q20data2_mean = sumAll2(this.q20d2) / this.q20d2.length;
 		//this.Stat1 = new numsToStat(this.q20d1);
 		//this.Stat2 = new numsToStat(this.q20data2);
 
-		this.devs1=new Array();
-		for(let i=0;i<this.q20d1.length;i++){
-			this.devs1[i]=this.q20d1[i]-this.q20data1_mean;
+		this.devs1 = new Array();
+		for (let i = 0; i < this.q20d1.length; i++) {
+			this.devs1[i] = this.q20d1[i] - this.q20data1_mean;
 
 		}
 
-		this.devs1s=new Array();
-		for (let i=0;i<this.devs1.length;i++){
-			this.devs1s[i]=this.devs1[i]*this.devs1[i];
+		this.devs1s = new Array();
+		for (let i = 0; i < this.devs1.length; i++) {
+			this.devs1s[i] = this.devs1[i] * this.devs1[i];
 		}
-		this.devs2=new Array();
-		for(let i=0;i<this.q20d2.length;i++){
-			this.devs2[i]=this.q20d2[i]-this.q20data2_mean,2;
+		this.devs2 = new Array();
+		for (let i = 0; i < this.q20d2.length; i++) {
+			this.devs2[i] = this.q20d2[i] - this.q20data2_mean, 2;
 
 		}
 
-		this.devs2s=new Array();
-		for (let i=0;i<this.devs2.length;i++){
-			this.devs2s[i]=this.devs2[i]*this.devs2[i];
+		this.devs2s = new Array();
+		for (let i = 0; i < this.devs2.length; i++) {
+			this.devs2s[i] = this.devs2[i] * this.devs2[i];
 		}
 
-		this.devXY=new Array();
-		for (let i=0;i<this.devs2.length;i++){
-			this.devXY[i]=this.devs1[i]*this.devs2[i];
+		this.devXY = new Array();
+		for (let i = 0; i < this.devs2.length; i++) {
+			this.devXY[i] = this.devs1[i] * this.devs2[i];
 		}
 
 		//this.Stat1 = new numsToStat(this.devs1);
 
-		this.q20sum1=0;
-		for(let i=0;i<this.devs1.length;i++){
-			this.q20sum1+=this.devs1s[i];
+		this.q20sum1 = 0;
+		for (let i = 0; i < this.devs1.length; i++) {
+			this.q20sum1 += this.devs1s[i];
 		}
 
-		this.q20sum2=sumAll2(this.devs2s);
-		this.q20sumXY=sumAll2(this.devXY);
+		this.q20sum2 = sumAll2(this.devs2s);
+		this.q20sumXY = sumAll2(this.devXY);
 
-		window.alert(this.q20sum2+"|"+this.q20sumXY);
-		this.r=this.q20sumXY/Math.sqrt(this.q20sum1*this.q20sum2);
+		window.alert(this.q20sum2 + "|" + this.q20sumXY);
+		this.r = this.q20sumXY / Math.sqrt(this.q20sum1 * this.q20sum2);
 		//this.q20r=0;
 		$("#q20stat1").val(this.devs1s);
 		$("#q20stat2").val(this.devs2s);
@@ -505,7 +538,7 @@
 
 		});
 
-		
+
 
 		//================19 回归分析（10）====================
 		$("#Caluclate_RegressionAnalysis").click(function () {
