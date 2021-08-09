@@ -1,3 +1,14 @@
+window.addEventListener(
+	"touchmove",
+	function(event) {
+		if(event.scale !== 1) {
+			event.preventDefault();
+		}
+	}, {
+		passive: false
+	}
+);
+
 $(document).ready(function () {
 
   $("#main_content").load("main_html/main_functions.html");
