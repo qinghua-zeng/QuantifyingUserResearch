@@ -9,6 +9,8 @@ window.addEventListener(
 	}
 );
 
+//上面如果不好用就删了
+
 $(document).ready(function () {
 
   $("#main_content").load("main_html/main_functions.html");
