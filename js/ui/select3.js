@@ -6,9 +6,9 @@ $(document).ready(function () {
 		if (e.target == $("#a1")[0]) {
 
 			if (situation == 0) {
-				$("#a0").text("有任务时间吗？");
-				$("#a1").text("有");
-				$("#a2").text("没有");
+				$("#a0").text("有任务时间吗？Is it task time?");
+				$("#a1").text("有 Yes");
+				$("#a2").text("没有 No");
 
 				situation = 1;
 			}
@@ -38,9 +38,9 @@ $(document).ready(function () {
 		} else if (e.target == $("#a2")[0]) {
 
 			if (situation == 0) {
-				$("#a0").text("小样本还是大样本？");
-				$("#a1").text("小样本");
-				$("#a2").text("大样本");
+				$("#a0").text("小样本还是大样本？Small or big sample？");
+				$("#a1").text("小样本 Small sample");
+				$("#a2").text("大样本 Big sample");
 				//$("#decision").text("Q01 Wald");
 				//$("#main_content").load("statistics/01.html");
 				situation = 2;

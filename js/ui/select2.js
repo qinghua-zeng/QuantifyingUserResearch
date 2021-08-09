@@ -6,26 +6,26 @@
 		if (e.target == $("#a1")[0]) {
 
 			if (situation == 0) {
-				$("#a0").text("连续还是离散？");
-				$("#a1").text("连续");
-				$("#a2").text("离散");
+				$("#a0").text("连续还是离散？What is the Data Type?");
+				$("#a1").text("连续 Continuos");
+				$("#a2").text("离散 Discrete-binary");
 
 				situation = 1;
 			}
 
 			else if (situation == 1) {
-				$("#a0").text("大于三组吗？");
-				$("#a1").text("小于三组");
-				$("#a2").text("大于三组");
+				$("#a0").text("大于三组吗？More than 3 groups? ");
+				$("#a1").text("小于三组 Less than 3 groups");
+				$("#a2").text("大于三组 More than 3 groups");
 				//$("#decision").text("Q10");
 				//$("#main_content").load("statistics/03.html");
 				situation = 2;
 			}
 
 			else if (situation == 2) {
-				$("#a0").text("每组用户相同吗？");
-				$("#a1").text("不同");
-				$("#a2").text("相同");
+				$("#a0").text("每组用户相同吗？Users");
+				$("#a1").text("不同 Different users in each group");
+				$("#a2").text("相同 Same users in each group");
 				//$("#decision").text("Q03 t(log）或 Q04 中位数置信区间");
 				//$("#main_content").load("statistics/03.html");
 				situation = 3;
@@ -53,8 +53,8 @@
 
 			else if (situation == 5) {
 				$("#a0").text("每组用户相同吗？");
-				$("#a1").text("不同");
-				$("#a2").text("相同");
+				$("#a1").text("不同 Different users in each group");
+				$("#a2").text("相同 Same users in each group");
 				//$("#decision").text("多重Q10");
 				//$("#main_content").load("statistics/10.html");
 				situation = 6;
@@ -83,18 +83,18 @@
 		} else if (e.target == $("#a2")[0]) {
 
 			if (situation == 0) {
-				$("#a0").text("连续还是离散？");
-				$("#a1").text("连续");
-				$("#a2").text("离散");
+				$("#a0").text("连续还是离散？What is the Data Type?");
+				$("#a1").text("连续 Continuos");
+				$("#a2").text("离散 Discrete-binary");
 				//$("#decision").text("Q01 Wald");
 				//$("#main_content").load("statistics/01.html");
 				situation = 7;
 			}
 
 			else if (situation == 1) {
-				$("#a0").text("大于三组吗？");
-				$("#a1").text("小于三组");
-				$("#a2").text("大于三组");
+				$("#a0").text("大于三组吗？More than 3 groups? ");
+				$("#a1").text("小于三组 Less than 3 groups");
+				$("#a2").text("大于三组 More than 3 groups");
 				situation = 5;
 				//$("#decision").text("Q02 T");
 				//$("#main_content").load("statistics/02.html");
@@ -102,8 +102,8 @@
 
 			else if (situation == 2) {
 				$("#a0").text("每组用户相同吗？");
-				$("#a1").text("不同");
-				$("#a2").text("相同");
+				$("#a1").text("不同 Different users in each group");
+				$("#a2").text("相同 Same users in each group");
 				//$("#decision").text("Q09");
 				//$("#main_content").load("statistics/09.html");
 				situation = 4;
